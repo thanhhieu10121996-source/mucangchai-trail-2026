@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>🏔️ Mù Cang Chải × Tú Lệ — 01–05/10/2026</title>
-<meta name="description" content="Lịch trình Mù Cang Chải 2026 - mùa giải mới của Mucangchai Ultra Trail, lịch trình theo tab từng ngày.">
+<meta name="description" content="Lịch trình Mù Cang Chải 2026 - mùa giải mới của Mucangchai Ultra Trail, đầy đủ vé máy bay, lưu trú, thời tiết, cẩm nang và sổ chi tiêu.">
 </head>
 <body>
 
@@ -124,6 +124,31 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .src-note{font-size:11px;color:var(--muted);margin-top:10px;}
 .src-note a{color:var(--muted);text-decoration:underline;}
 
+/* ═══ FLIGHTS ═══ */
+.flight-pair{display:grid;gap:10px;margin-bottom:14px;}
+@media(min-width:600px){.flight-pair{grid-template-columns:1fr 1fr;}}
+.fcard{background:var(--bg2);border-radius:var(--r);padding:17px 18px;border:1px solid var(--line);position:relative;overflow:hidden;}
+.fcard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;}
+.fcard.go::before{background:var(--accent);}
+.fcard.back::before{background:var(--day3);}
+.fcard-label{font-family:var(--font-display);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px;}
+.fcard-route{font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--ink);margin-bottom:6px;}
+.fcard-detail{font-size:12px;color:var(--muted);line-height:1.7;}
+.fcard-tag{margin-top:11px;display:inline-block;font-size:10.5px;font-weight:700;padding:4px 11px;border-radius:20px;}
+.tag-warn{background:rgba(245,166,35,.14);color:#F5C05C;}
+.tag-ok{background:rgba(52,199,142,.14);color:#5BD9A8;}
+
+/* ═══ HOTELS ═══ */
+.hotel-grid{display:grid;gap:12px;}
+@media(min-width:600px){.hotel-grid{grid-template-columns:repeat(2,1fr);}}
+.hcard{background:var(--bg2);border-radius:var(--r);padding:18px;border:1px solid var(--line);}
+.hcard-name{font-family:var(--font-display);font-size:15px;font-weight:800;color:var(--ink);}
+.hcard-area{font-size:10.5px;font-weight:700;color:var(--accent2,var(--accent));text-transform:uppercase;letter-spacing:.05em;margin-top:3px;}
+.hcard-why{font-size:12.5px;color:var(--muted);line-height:1.62;margin-top:9px;}
+.hcard-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px;}
+.htag{font-size:10.5px;font-weight:700;background:var(--bg3);border:1px solid var(--line);border-radius:20px;padding:3px 10px;color:var(--muted);}
+.hcard .btn-map{display:inline-block;margin-top:11px;}
+
 /* ═══ DAY TABS ═══ */
 .day-tabs-wrap{margin-bottom:18px;}
 .day-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
@@ -175,6 +200,21 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .tl-links{margin-top:7px;}
 .btn-map{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--accent2);text-decoration:none;}
 .btn-map:hover{text-decoration:underline;}
+
+/* ═══ MOOD RATING ═══ */
+.mood-row{display:flex;align-items:center;gap:6px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line);flex-wrap:wrap;}
+.mood-label{font-family:var(--font-display);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:4px;}
+.mood-btn{background:none;border:1.5px solid var(--line);border-radius:50%;font-size:18px;width:34px;height:34px;cursor:pointer;opacity:.55;display:flex;align-items:center;justify-content:center;line-height:1;}
+.mood-btn:hover{opacity:.85;}
+.mood-btn.picked{opacity:1;border-color:var(--accent);background:var(--accent-soft);}
+
+/* ═══ DAY NOTE ═══ */
+.day-note-wrap{margin-top:16px;}
+.day-note-label{font-family:var(--font-display);font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;display:block;}
+.day-note{width:100%;min-height:56px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:13px;color:var(--ink);background:var(--bg);resize:vertical;line-height:1.5;}
+.day-note:focus{outline:none;border-color:var(--accent);}
+.day-note-saved{font-size:10.5px;color:var(--day3);margin-top:4px;height:13px;opacity:0;transition:opacity .3s;}
+.day-note-saved.show{opacity:1;}
 
 /* ═══ CARD GRIDS (places / food) ═══ */
 .grid-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
@@ -252,6 +292,12 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .exp-item-meta{font-size:10.5px;color:var(--muted);margin-top:1px;}
 .exp-item-amt{font-size:12.5px;font-weight:800;color:var(--accent);white-space:nowrap;flex-shrink:0;text-align:right;}
 .exp-del{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1px solid var(--line);background:none;color:#FF7A6B;font-size:12px;font-weight:900;cursor:pointer;}
+.exp-item-payer{display:block;font-size:9.5px;font-weight:700;color:var(--accent2,var(--accent));margin-top:1px;}
+.exp-payer-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:4px 0 8px;}
+@media(min-width:560px){.exp-payer-row{grid-template-columns:repeat(4,1fr);}}
+.exp-payer-chip{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-sm);padding:9px 10px;text-align:center;}
+.exp-payer-name{display:block;font-size:9.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+.exp-payer-amt{display:block;font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--ink);margin-top:3px;}
 
 /* ═══ CHECK-IN GRID ═══ */
 .checkin-summary{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
@@ -281,6 +327,12 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .dash-grid .box{border:1px solid var(--line);border-radius:14px;padding:16px 10px;text-align:center;}
 .dash-grid .box .v{font-family:var(--font-display);font-size:1.4rem;color:var(--accent);font-weight:900;}
 .dash-grid .box .k{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:5px;}
+.wrap-moods{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;}
+.wrap-mood-chip{background:var(--bg3);border:1px solid var(--line);border-radius:20px;padding:6px 13px;font-size:12px;display:flex;align-items:center;gap:6px;color:var(--muted);}
+.wrap-photos{display:flex;gap:7px;margin-top:14px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;}
+.wrap-photos::-webkit-scrollbar{display:none;}
+.wrap-photos img{width:54px;height:54px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1.5px solid var(--line);}
+.wrap-empty{font-size:11.5px;color:var(--muted);margin-top:16px;}
 
 /* ═══ TIPS / SOS ═══ */
 .tips-grid{display:grid;gap:10px;}
@@ -297,6 +349,23 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .em-label{font-family:var(--font-display);font-size:10px;font-weight:800;color:#FF7A6B;text-transform:uppercase;letter-spacing:.04em;}
 .em-val{font-family:var(--font-display);font-size:17px;font-weight:900;color:var(--ink);margin-top:4px;}
 .em-note{font-size:11px;color:var(--muted);margin-top:2px;}
+
+/* ═══ WEATHER ═══ */
+.weather-grid{display:grid;gap:12px;margin-bottom:12px;}
+@media(min-width:560px){.weather-grid{grid-template-columns:repeat(2,1fr);}}
+.wcard{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:18px;}
+.wcard-place{font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--ink);}
+.wcard-temp{font-family:var(--font-display);font-size:26px;font-weight:900;color:var(--accent);margin-top:8px;}
+.wcard-temp span{color:var(--muted);font-weight:600;font-size:16px;}
+.wcard-note{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.6;}
+
+/* ═══ PHRASEBOOK / VOCAB ═══ */
+.phrase-list{display:grid;gap:8px;}
+@media(min-width:600px){.phrase-list{grid-template-columns:1fr 1fr;}}
+.phrase{background:var(--bg2);border-radius:var(--r-sm);padding:12px 15px;border:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.phrase-vn{font-family:var(--font-display);font-size:13.5px;font-weight:800;color:var(--ink);}
+.phrase-th{font-size:11.5px;color:var(--muted);margin-top:3px;}
+.phrase-say{font-size:10.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:20px;padding:4px 10px;white-space:nowrap;flex-shrink:0;}
 
 /* ═══ FOOTER ═══ */
 .footer{background:var(--bg2);border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:30px 20px;margin-top:20px;}
@@ -329,9 +398,13 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
 <nav class="snav" id="snav">
   <a href="#tong-quan">Tổng quan</a>
   <a href="#giai-chay">Giải chạy</a>
+  <a href="#ve-may-bay">Vé máy bay</a>
+  <a href="#luu-tru">Lưu trú</a>
   <a href="#lich-trinh">Lịch trình</a>
   <a href="#diem-den">Điểm đến</a>
   <a href="#am-thuc">Ẩm thực</a>
+  <a href="#thoi-tiet">Thời tiết</a>
+  <a href="#tu-vung">Cẩm nang</a>
   <a href="#chuan-bi">Chuẩn bị</a>
   <a href="#chi-phi">Chi phí</a>
   <a href="#so-chi-tieu">Sổ chi tiêu</a>
@@ -369,6 +442,48 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     <div class="alert"><span class="alert-icon">⏱️</span><div><strong>Giờ xuất phát cự ly 12km chưa công bố chính thức</strong>Theo dõi lại thông báo BTC gần ngày race — mốc trong lịch trình bên dưới chỉ là tham khảo theo mùa giải trước.</div></div>
   </section>
 
+  <section class="sec reveal pre" id="ve-may-bay">
+    <div class="sec-eyebrow">Bay như thế nào</div>
+    <div class="sec-title">Vé máy bay</div>
+    <p class="sec-desc">Khung giờ tham khảo theo hành trình gốc — cần chốt lại chính xác khi đặt vé cho mùa 2026.</p>
+    <div class="flight-pair">
+      <div class="fcard go">
+        <div class="fcard-label">Chuyến đi · Thứ 5, 01/10</div>
+        <div class="fcard-route">SGN → HAN</div>
+        <div class="fcard-detail">Cất cánh 16:50 · Hạ cánh 19:00<br>Tân Sơn Nhất → Nội Bài</div>
+        <span class="fcard-tag tag-warn">Chưa chốt vé</span>
+      </div>
+      <div class="fcard back">
+        <div class="fcard-label">Chuyến về · Thứ 2, 05/10</div>
+        <div class="fcard-route">HAN → SGN</div>
+        <div class="fcard-detail">Cất cánh 18:15 · Hạ cánh 20:25<br>Nội Bài → Tân Sơn Nhất</div>
+        <span class="fcard-tag tag-warn">Chưa chốt vé</span>
+      </div>
+    </div>
+    <div class="alert"><span class="alert-icon">💡</span><div><strong>Nên đặt vé trước 2–3 tháng</strong>Tháng 9–11 là mùa thấp điểm bay TP.HCM–Hà Nội nên giá thường mềm hơn, nhưng đặt sớm vẫn dễ chọn giờ bay đẹp khớp với lịch xe MCC.</div></div>
+  </section>
+
+  <section class="sec reveal pre" id="luu-tru">
+    <div class="sec-eyebrow">Ngủ ở đâu</div>
+    <div class="sec-title">Lưu trú</div>
+    <p class="sec-desc">2 điểm nghỉ chính trong suốt hành trình.</p>
+    <div class="hotel-grid">
+      <div class="hcard">
+        <div class="hcard-name">Homestay Ngọc Thủy</div>
+        <div class="hcard-area">La Pán Tẩn · Mù Cang Chải</div>
+        <div class="hcard-why">Nằm ngay trên QL32, cách Đồi Mâm Xôi chỉ 1,3km — điểm nghỉ chân lý tưởng cho cả 3 đêm ở MCC, đi lại thuận tiện tới khu BIB, đèo Khau Phạ và các bản lân cận.</div>
+        <div class="hcard-tags"><span class="htag">3 đêm</span><span class="htag">Ngày 1–3</span><span class="htag">View ruộng bậc thang</span></div>
+        <a class="btn-map" href="https://www.google.com/maps/place/Homestay+Ng%E1%BB%8Dc+Th%E1%BB%A7y/@21.7909347,104.1512782,17z" target="_blank" rel="noopener">📍 Xem bản đồ</a>
+      </div>
+      <div class="hcard">
+        <div class="hcard-name">HaNoi Jade Hostel</div>
+        <div class="hcard-area">46 phố Hàng Gà · Phố Cổ Hà Nội</div>
+        <div class="hcard-why">Ngay trung tâm Phố Cổ, thuận tiện đi bộ tới Hồ Gươm và các điểm tham quan buổi sáng cuối hành trình trước khi ra sân bay.</div>
+        <div class="hcard-tags"><span class="htag">1 đêm</span><span class="htag">Ngày 4</span><span class="htag">Trung tâm Phố Cổ</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="sec reveal pre" id="lich-trinh">
     <div class="sec-eyebrow">Hành trình 5 ngày 4 đêm</div>
     <div class="sec-title">Lịch trình theo ngày</div>
@@ -398,6 +513,18 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
           <div class="tli"><div class="tl-time">19:30–22:00</div><div><div class="tl-title">Ăn tối, chờ xe đón đi Mù Cang Chải</div><div class="tl-desc">Nhà xe đón khu vực gần Nội Bài.</div><div class="tl-tip">💡 Xác nhận điểm đón chính xác với nhà xe trước ngày đi.</div></div></div>
           <div class="tli"><div class="tl-time">22:00</div><div><div class="tl-title">Xe đêm Hà Nội → Mù Cang Chải</div><div class="tl-desc">Khoảng 6 tiếng di chuyển.</div></div></div>
         </div>
+        <div class="mood-row"><span class="mood-label">Cảm xúc trong ngày</span>
+          <button class="mood-btn" data-day="0" data-mood="😍" onclick="pickMood(this)">😍</button>
+          <button class="mood-btn" data-day="0" data-mood="😊" onclick="pickMood(this)">😊</button>
+          <button class="mood-btn" data-day="0" data-mood="😐" onclick="pickMood(this)">😐</button>
+          <button class="mood-btn" data-day="0" data-mood="😴" onclick="pickMood(this)">😴</button>
+          <button class="mood-btn" data-day="0" data-mood="🥵" onclick="pickMood(this)">🥵</button>
+        </div>
+        <div class="day-note-wrap">
+          <label class="day-note-label" for="note0">📝 Ghi chú riêng của bạn</label>
+          <textarea class="day-note" id="note0" data-day="0" placeholder="Viết cảm nhận, kỷ niệm của ngày này..."></textarea>
+          <div class="day-note-saved" id="noteSaved0">Đã lưu ✓</div>
+        </div>
       </div>
     </div>
 
@@ -421,6 +548,18 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
           <div class="tli"><div class="tl-time">16:30–18:00</div><div><div class="tl-title">Về homestay, tắm rửa</div></div></div>
           <div class="tli"><div class="tl-time">18:00</div><div><div class="tl-title">Ăn tối sớm, ngủ sớm</div><div class="tl-desc">Giữ sức cho race sáng mai.</div></div></div>
         </div>
+        <div class="mood-row"><span class="mood-label">Cảm xúc trong ngày</span>
+          <button class="mood-btn" data-day="1" data-mood="😍" onclick="pickMood(this)">😍</button>
+          <button class="mood-btn" data-day="1" data-mood="😊" onclick="pickMood(this)">😊</button>
+          <button class="mood-btn" data-day="1" data-mood="😐" onclick="pickMood(this)">😐</button>
+          <button class="mood-btn" data-day="1" data-mood="😴" onclick="pickMood(this)">😴</button>
+          <button class="mood-btn" data-day="1" data-mood="🥵" onclick="pickMood(this)">🥵</button>
+        </div>
+        <div class="day-note-wrap">
+          <label class="day-note-label" for="note1">📝 Ghi chú riêng của bạn</label>
+          <textarea class="day-note" id="note1" data-day="1" placeholder="Viết cảm nhận, kỷ niệm của ngày này..."></textarea>
+          <div class="day-note-saved" id="noteSaved1">Đã lưu ✓</div>
+        </div>
       </div>
     </div>
 
@@ -442,6 +581,18 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
           <div class="tli"><div class="tl-time">16:00–17:00</div><div><div class="tl-title">Về homestay</div></div></div>
           <div class="tli"><div class="tl-time">17:00–19:00</div><div><div class="tl-title">Ăn tối mừng chiến tích</div></div></div>
           <div class="tli"><div class="tl-time">19:00</div><div><div class="tl-title">Nghỉ ngơi</div></div></div>
+        </div>
+        <div class="mood-row"><span class="mood-label">Cảm xúc trong ngày</span>
+          <button class="mood-btn" data-day="2" data-mood="😍" onclick="pickMood(this)">😍</button>
+          <button class="mood-btn" data-day="2" data-mood="😊" onclick="pickMood(this)">😊</button>
+          <button class="mood-btn" data-day="2" data-mood="😐" onclick="pickMood(this)">😐</button>
+          <button class="mood-btn" data-day="2" data-mood="😴" onclick="pickMood(this)">😴</button>
+          <button class="mood-btn" data-day="2" data-mood="🥵" onclick="pickMood(this)">🥵</button>
+        </div>
+        <div class="day-note-wrap">
+          <label class="day-note-label" for="note2">📝 Ghi chú riêng của bạn</label>
+          <textarea class="day-note" id="note2" data-day="2" placeholder="Viết cảm nhận, kỷ niệm của ngày này..."></textarea>
+          <div class="day-note-saved" id="noteSaved2">Đã lưu ✓</div>
         </div>
       </div>
     </div>
@@ -465,6 +616,18 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
           <div class="tli"><div class="tl-time">19:00–20:00</div><div><div class="tl-title">Thu dọn hành lý, lên xe</div></div></div>
           <div class="tli"><div class="tl-time">20:00–02:00</div><div><div class="tl-title">Xe đêm Mù Cang Chải → Hà Nội</div></div></div>
         </div>
+        <div class="mood-row"><span class="mood-label">Cảm xúc trong ngày</span>
+          <button class="mood-btn" data-day="3" data-mood="😍" onclick="pickMood(this)">😍</button>
+          <button class="mood-btn" data-day="3" data-mood="😊" onclick="pickMood(this)">😊</button>
+          <button class="mood-btn" data-day="3" data-mood="😐" onclick="pickMood(this)">😐</button>
+          <button class="mood-btn" data-day="3" data-mood="😴" onclick="pickMood(this)">😴</button>
+          <button class="mood-btn" data-day="3" data-mood="🥵" onclick="pickMood(this)">🥵</button>
+        </div>
+        <div class="day-note-wrap">
+          <label class="day-note-label" for="note3">📝 Ghi chú riêng của bạn</label>
+          <textarea class="day-note" id="note3" data-day="3" placeholder="Viết cảm nhận, kỷ niệm của ngày này..."></textarea>
+          <div class="day-note-saved" id="noteSaved3">Đã lưu ✓</div>
+        </div>
       </div>
     </div>
 
@@ -487,6 +650,18 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
           <div class="tli"><div class="tl-time">17:15–17:30</div><div><div class="tl-title">Check-in sân bay</div></div></div>
           <div class="tli"><div class="tl-time">18:15–20:25</div><div><div class="tl-title">Bay Hà Nội → TP.HCM</div><div class="tl-desc">Khung giờ tham khảo theo lịch cũ.</div></div></div>
           <div class="tli"><div class="tl-time">20:30</div><div><div class="tl-title">Về nhà</div></div></div>
+        </div>
+        <div class="mood-row"><span class="mood-label">Cảm xúc trong ngày</span>
+          <button class="mood-btn" data-day="4" data-mood="😍" onclick="pickMood(this)">😍</button>
+          <button class="mood-btn" data-day="4" data-mood="😊" onclick="pickMood(this)">😊</button>
+          <button class="mood-btn" data-day="4" data-mood="😐" onclick="pickMood(this)">😐</button>
+          <button class="mood-btn" data-day="4" data-mood="😴" onclick="pickMood(this)">😴</button>
+          <button class="mood-btn" data-day="4" data-mood="🥵" onclick="pickMood(this)">🥵</button>
+        </div>
+        <div class="day-note-wrap">
+          <label class="day-note-label" for="note4">📝 Ghi chú riêng của bạn</label>
+          <textarea class="day-note" id="note4" data-day="4" placeholder="Viết cảm nhận, kỷ niệm của ngày này..."></textarea>
+          <div class="day-note-saved" id="noteSaved4">Đã lưu ✓</div>
         </div>
       </div>
     </div>
@@ -518,6 +693,40 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
       <div class="pcard" style="--accent2:var(--day3)"><div class="pimg">🥓</div><div class="pbody"><div class="ptag">Đặc sản</div><h4>Thịt lợn đen nướng</h4><p>Tẩm mắc khén, hồi, tiêu.</p></div></div>
       <div class="pcard" style="--accent2:var(--day4)"><div class="pimg">🍜</div><div class="pbody"><div class="ptag">Hà Nội</div><h4>Phở, bún chả, cà phê trứng</h4><p>Sáng cuối hành trình quanh Phố Cổ.</p></div></div>
     </div>
+  </section>
+
+  <section class="sec reveal pre" id="thoi-tiet">
+    <div class="sec-eyebrow">Nên mặc gì</div>
+    <div class="sec-title">Thời tiết đầu tháng 10</div>
+    <p class="sec-desc">Tham khảo khí hậu chung của khu vực — nên kiểm tra lại dự báo cụ thể gần ngày đi.</p>
+    <div class="weather-grid">
+      <div class="wcard">
+        <div class="wcard-place">🏔️ Mù Cang Chải</div>
+        <div class="wcard-temp">15° <span>–</span> 27°</div>
+        <div class="wcard-note">Ban ngày nắng ấm, sáng sớm và tối trên đèo se lạnh, dễ có sương mù — nhất là khu vực Khau Phạ.</div>
+      </div>
+      <div class="wcard">
+        <div class="wcard-place">🏙️ Hà Nội</div>
+        <div class="wcard-temp">24° <span>–</span> 32°</div>
+        <div class="wcard-note">Cuối mùa mưa, vẫn có thể có mưa rào bất chợt, độ ẩm cao.</div>
+      </div>
+    </div>
+    <p class="src-note">Số liệu tham khảo theo khí hậu trung bình khu vực Tây Bắc đầu tháng 10, không phải dự báo thời tiết chính xác cho 2026.</p>
+  </section>
+
+  <section class="sec reveal pre" id="tu-vung">
+    <div class="sec-eyebrow">Cẩm nang thực hành</div>
+    <div class="sec-title">Từ vựng &amp; văn hoá Tây Bắc</div>
+    <p class="sec-desc">Vài từ và lưu ý văn hoá thường gặp trên đường, để không bỡ ngỡ khi trò chuyện với người bản địa.</p>
+    <div class="phrase-list">
+      <div class="phrase"><div><div class="phrase-vn">Bản</div><div class="phrase-th">Xóm/làng nhỏ của người dân tộc</div></div><span class="phrase-say">Nghe quen</span></div>
+      <div class="phrase"><div><div class="phrase-vn">Ruộng bậc thang</div><div class="phrase-th">Ruộng lúa xếp tầng theo sườn núi</div></div><span class="phrase-say">Biểu tượng MCC</span></div>
+      <div class="phrase"><div><div class="phrase-vn">Mùa nước đổ</div><div class="phrase-th">Tháng 5–6, ruộng đổ nước chuẩn bị cấy</div></div><span class="phrase-say">Khác mùa đi</span></div>
+      <div class="phrase"><div><div class="phrase-vn">Mùa lúa chín</div><div class="phrase-th">Tháng 9–10, ruộng vàng óng — đúng dịp đi</div></div><span class="phrase-say">Mùa của bạn</span></div>
+      <div class="phrase"><div><div class="phrase-vn">Nhà sàn</div><div class="phrase-th">Nhà truyền thống dựng trên cột, sàn cao</div></div><span class="phrase-say">Cởi giày trước khi lên</span></div>
+      <div class="phrase"><div><div class="phrase-vn">Xôi ngũ sắc / Pa Pỉnh Tộp</div><div class="phrase-th">Món đặc sản của người Thái</div></div><span class="phrase-say">Nên thử</span></div>
+    </div>
+    <div class="alert" style="margin-top:14px;"><span class="alert-icon">🙏</span><div><strong>Vài lưu ý khi ghé bản</strong>Xin phép trước khi chụp ảnh cận cảnh người dân, đặc biệt trẻ em; ăn mặc kín đáo; hỏi trước khi vào nhà sàn hoặc khu vực thờ cúng.</div></div>
   </section>
 
   <section class="sec reveal pre" id="chuan-bi">
@@ -609,6 +818,12 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
           <option value="📱 Linh tinh">📱 Linh tinh</option>
         </select>
         <input type="text" class="exp-input" id="expNote" placeholder="Ghi chú (vd: vé zipline)">
+        <select class="exp-input exp-cur" id="expPayer">
+          <option value="Ly">Ly trả</option>
+          <option value="Hiếu">Hiếu trả</option>
+          <option value="Khánh">Khánh trả</option>
+          <option value="Bác Hoàng">Bác Hoàng trả</option>
+        </select>
         <input type="number" class="exp-input exp-amt" id="expAmt" placeholder="Số tiền (đ)" min="0" step="1000">
         <button type="button" class="exp-add" id="expAdd">+ Thêm</button>
       </div>
@@ -618,6 +833,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
       <div class="exp-sum-box"><div class="exp-sum-label">Dự trù (TB)</div><div class="exp-sum-val tnum">7.475.000đ</div></div>
       <div class="exp-sum-box"><div class="exp-sum-label">Chênh lệch</div><div class="exp-sum-val tnum" id="expDiff">0đ</div></div>
     </div>
+    <div class="exp-payer-row" id="expPayerRow"></div>
     <div class="exp-list" id="expenseList"></div>
   </section>
 
@@ -644,6 +860,8 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         <div class="box"><div class="v tnum" id="dashPhotos">0</div><div class="k">Ảnh lưu lại</div></div>
         <div class="box"><div class="v tnum" id="dashPrep">0%</div><div class="k">Chuẩn bị</div></div>
       </div>
+      <div class="wrap-moods" id="wrapMoods"></div>
+      <div class="wrap-photos" id="wrapPhotos"></div>
     </div>
   </section>
 
@@ -719,6 +937,72 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
       });
     });
   }catch(e){}
+
+  /* ── day notes ── */
+  try{
+    var NOTE_KEY = 'mcc2026_notes';
+    function loadNotes(){ try{ return JSON.parse(localStorage.getItem(NOTE_KEY)||'{}'); }catch(e){ return {}; } }
+    var notesState = loadNotes();
+    var noteAreas = Array.prototype.slice.call(document.querySelectorAll('.day-note'));
+    noteAreas.forEach(function(ta){
+      var d = ta.dataset.day;
+      if (notesState[d]) ta.value = notesState[d];
+      var saveTimer = null;
+      ta.addEventListener('input', function(){
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function(){
+          var all = loadNotes();
+          all[d] = ta.value;
+          localStorage.setItem(NOTE_KEY, JSON.stringify(all));
+          var ind = document.getElementById('noteSaved'+d);
+          if (ind){ ind.classList.add('show'); setTimeout(function(){ ind.classList.remove('show'); }, 1500); }
+        }, 500);
+      });
+    });
+  }catch(e){}
+
+  /* ── mood rating ── */
+  try{
+    var MOOD_KEY = 'mcc2026_moods';
+    function loadMoods(){ try{ return JSON.parse(localStorage.getItem(MOOD_KEY)||'{}'); }catch(e){ return {}; } }
+    function saveMoods(st){ localStorage.setItem(MOOD_KEY, JSON.stringify(st)); }
+    var moodState = loadMoods();
+    Array.prototype.slice.call(document.querySelectorAll('.mood-btn')).forEach(function(b){
+      if (moodState[b.dataset.day] === b.dataset.mood) b.classList.add('picked');
+    });
+    window.pickMood = function(btn){
+      var day = btn.dataset.day;
+      var group = Array.prototype.slice.call(document.querySelectorAll('.mood-btn[data-day="'+day+'"]'));
+      group.forEach(function(b){ b.classList.remove('picked'); });
+      btn.classList.add('picked');
+      var all = loadMoods();
+      all[day] = btn.dataset.mood;
+      saveMoods(all);
+      renderWrapped();
+    };
+  }catch(e){}
+
+  function renderWrapped(){
+    try{
+      var moods = JSON.parse(localStorage.getItem('mcc2026_moods')||'{}');
+      var box = document.getElementById('wrapMoods');
+      if (box){
+        var dayNames = {'0':'Ngày 0','1':'Ngày 1','2':'Ngày 2','3':'Ngày 3','4':'Ngày 4'};
+        var html = '';
+        Object.keys(moods).sort().forEach(function(d){
+          html += '<span class="wrap-mood-chip">'+moods[d]+' '+(dayNames[d]||('Ngày '+d))+'</span>';
+        });
+        box.innerHTML = html;
+      }
+      var ck = JSON.parse(localStorage.getItem('mcc2026_checkin')||'{}');
+      var pbox = document.getElementById('wrapPhotos');
+      if (pbox){
+        var imgs = Object.keys(ck).filter(function(k){ return ck[k] && ck[k].photo; }).map(function(k){ return ck[k].photo; });
+        pbox.innerHTML = imgs.length ? imgs.map(function(src){ return '<img src="'+src+'" alt="check-in">'; }).join('') : '<div class="wrap-empty">Ảnh check-in bạn thêm ở mục "Dấu chân" sẽ hiện ở đây.</div>';
+      }
+    }catch(e){}
+  }
+  renderWrapped();
 
   try{
     var allSecs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
@@ -841,6 +1125,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
           var desc = document.createElement('div'); desc.className='exp-item-desc'; desc.textContent=e.note || e.cat;
           var meta = document.createElement('div'); meta.className='exp-item-meta'; meta.textContent=e.cat+' · '+e.day;
           main.appendChild(desc); main.appendChild(meta);
+          if (e.payer){ var payerEl = document.createElement('span'); payerEl.className='exp-item-payer'; payerEl.textContent='💰 '+e.payer+' trả'; main.appendChild(payerEl); }
           var amt = document.createElement('div'); amt.className='exp-item-amt'; amt.textContent=fmtVND(e.amt);
           var del = document.createElement('button'); del.className='exp-del'; del.type='button'; del.textContent='✕';
           del.addEventListener('click', function(){
@@ -852,6 +1137,17 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         });
       }
       updateDashboardStats();
+      renderPayerSummary();
+    }
+    function renderPayerSummary(){
+      var row = document.getElementById('expPayerRow');
+      if (!row) return;
+      var payers = ['Ly','Hiếu','Khánh','Bác Hoàng'];
+      var all = loadExpenses();
+      row.innerHTML = payers.map(function(p){
+        var total = all.filter(function(e){ return e.payer===p; }).reduce(function(s,e){ return s+(Number(e.amt)||0); },0);
+        return '<div class="exp-payer-chip"><span class="exp-payer-name">'+p+'</span><span class="exp-payer-amt tnum">'+fmtVND(total)+'</span></div>';
+      }).join('');
     }
     var addBtn = document.getElementById('expAdd');
     if (addBtn){
@@ -859,10 +1155,11 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         var cat = document.getElementById('expCat').value;
         var noteEl = document.getElementById('expNote');
         var amtEl = document.getElementById('expAmt');
+        var payerEl = document.getElementById('expPayer');
         var amt = Number(amtEl.value);
         if (!amt || amt<=0) { amtEl.focus(); return; }
         var all = loadExpenses();
-        all.push({id: Date.now()+'-'+Math.random().toString(36).slice(2), day: expActiveDay, cat: cat, note: noteEl.value.trim(), amt: amt});
+        all.push({id: Date.now()+'-'+Math.random().toString(36).slice(2), day: expActiveDay, cat: cat, note: noteEl.value.trim(), amt: amt, payer: payerEl ? payerEl.value : ''});
         saveExpenses(all);
         noteEl.value=''; amtEl.value='';
         renderExpenses();
@@ -932,6 +1229,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
               card.classList.add('visited');
               var chk = card.querySelector('input[type=checkbox]'); if (chk) chk.checked = true;
               updateDashboardStats();
+              if (typeof renderWrapped === 'function') renderWrapped();
             };
             image.src = reader.result;
           };
