@@ -31,7 +31,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6;font-size:15px;padding-bottom:calc(64px + var(--safe-b));}
+body{font-family:var(--font-body);background:var(--bg) radial-gradient(circle,rgba(244,239,227,.05) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);line-height:1.6;font-size:15px;padding-bottom:calc(64px + var(--safe-b));}
 @media(min-width:700px){body{padding-bottom:0;}}
 a{color:var(--accent);}
 img{max-width:100%;display:block;}
@@ -151,6 +151,9 @@ img{max-width:100%;display:block;}
 .lightbox-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);max-width:420px;width:100%;overflow:hidden;position:relative;}
 .lightbox-close{position:absolute;top:10px;right:10px;z-index:2;width:32px;height:32px;border-radius:50%;border:none;background:rgba(9,8,6,.6);color:#fff;font-size:15px;cursor:pointer;}
 .lightbox-photo{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--bg3);}
+.lightbox-map{width:100%;aspect-ratio:4/3;display:none;background:var(--bg3);}
+.lightbox-map.show{display:block;}
+.lightbox-map iframe{width:100%;height:100%;border:0;display:block;}
 .lightbox-body{padding:16px 18px;}
 .lightbox-name{font-family:var(--font-display);font-size:15px;font-weight:800;color:var(--ink);}
 
@@ -309,11 +312,13 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 @media(min-width:480px){.tli{grid-template-columns:86px 1fr;}}
 .tli:first-child{border-top:none;}
 .tl-time{font-family:var(--font-display);font-weight:800;font-size:12px;color:var(--accent2);line-height:1.4;}
-.tl-title{font-size:14px;font-weight:700;color:var(--ink);line-height:1.4;}
+.tl-title{font-size:14px;font-weight:700;color:var(--ink);line-height:1.4;display:flex;align-items:center;gap:8px;}
+.tl-icon{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:13px;}
 .tl-desc{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.55;}
 .tl-tip{font-size:11.5px;background:var(--accent-soft);border-left:2px solid var(--accent);padding:7px 10px;border-radius:0 6px 6px 0;margin-top:7px;color:var(--ink);}
 .tl-links{margin-top:7px;}
-.btn-map{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--accent2);text-decoration:none;}
+.btn-map{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--accent2);text-decoration:none;background:none;border:none;font-family:inherit;cursor:pointer;padding:0;}
+.pl-actions{display:flex;flex-wrap:wrap;gap:16px;}
 .btn-map:hover{text-decoration:underline;}
 
 /* ═══ MOOD RATING ═══ */
@@ -639,7 +644,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     </div>
 
     <div class="day-panel show" data-idx="0" style="--accent2:var(--day0)">
-      <div class="day-head"><div class="dh-scrim solid"></div><div class="dh-num">01</div><div class="dh-info"><div class="dh-kicker">Ngày 1 · Hà Nội mùa thu</div><h2>Rời phố, ngược núi</h2><p>Thứ 5 · 01/10/2026 · Bay SGN→HAN, dạo phố thu, xe đêm lên MCC</p></div></div>
+      <div class="day-head"><img class="dh-bg" src="img/phandinhphung.jpg" alt="Phố Phan Đình Phùng mùa thu Hà Nội"><div class="dh-scrim"></div><div class="dh-num">01</div><div class="dh-info"><div class="dh-kicker">Ngày 1 · Hà Nội mùa thu</div><h2>Rời phố, ngược núi</h2><p>Thứ 5 · 01/10/2026 · Bay SGN→HAN, dạo phố thu, xe đêm lên MCC</p></div></div>
       <div class="day-body">
         <div class="route-label">📍 Lộ trình</div>
         <div class="route"><div class="route-inner">Sân bay Tân Sơn Nhất <span class="route-arr">→</span> Sân bay Nội Bài <span class="route-arr">→</span> Phố Phan Đình Phùng <span class="route-arr">→</span> Nhà thờ Lớn <span class="route-arr">→</span> Bến xe Mỹ Đình <span class="route-arr">→</span> Xe đêm Mù Cang Chải</div></div>
@@ -776,7 +781,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     </div>
 
     <div class="day-panel" data-idx="4" style="--accent2:var(--day4)">
-      <div class="day-head"><div class="dh-scrim solid"></div><div class="dh-num">05</div><div class="dh-info"><div class="dh-kicker">Ngày 5 · Sa Pa</div><h2>Săn mây trên nóc nhà Đông Dương</h2><p>Thứ 2 · 05/10/2026 · Fansipan · Cát Cát · tàu đêm về Hà Nội</p></div></div>
+      <div class="day-head"><img class="dh-bg" src="img/fansipan.jpg" alt="Cáp treo Fansipan giữa ruộng bậc thang"><div class="dh-scrim"></div><div class="dh-num">05</div><div class="dh-info"><div class="dh-kicker">Ngày 5 · Sa Pa</div><h2>Săn mây trên nóc nhà Đông Dương</h2><p>Thứ 2 · 05/10/2026 · Fansipan · Cát Cát · tàu đêm về Hà Nội</p></div></div>
       <div class="day-body">
         <div class="route-label">📍 Lộ trình</div>
         <div class="route"><div class="route-inner">Sa Pa <span class="route-arr">→</span> Cáp treo Fansipan <span class="route-arr">→</span> Bản Cát Cát <span class="route-arr">→</span> Nhà thờ Đá <span class="route-arr">→</span> Ga Lào Cai <span class="route-arr">→</span> Tàu đêm</div></div>
@@ -812,7 +817,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     </div>
 
     <div class="day-panel" data-idx="5" style="--accent2:var(--day5)">
-      <div class="day-head"><div class="dh-scrim solid"></div><div class="dh-num">06</div><div class="dh-info"><div class="dh-kicker">Ngày 6 · Về nhà</div><h2>Tạm biệt Tây Bắc</h2><p>Thứ 3 · 06/10/2026 · Tàu về Hà Nội → cả ngày tự do → bay TP.HCM</p></div></div>
+      <div class="day-head"><img class="dh-bg" src="img/nhathologn.jpg" alt="Nhà thờ Lớn Hà Nội"><div class="dh-scrim"></div><div class="dh-num">06</div><div class="dh-info"><div class="dh-kicker">Ngày 6 · Về nhà</div><h2>Tạm biệt Tây Bắc</h2><p>Thứ 3 · 06/10/2026 · Tàu về Hà Nội → cả ngày tự do → bay TP.HCM</p></div></div>
       <div class="day-body">
         <div class="route-label">📍 Lộ trình</div>
         <div class="route"><div class="route-inner">Tàu đêm <span class="route-arr">→</span> Ga Hà Nội <span class="route-arr">→</span> Tự do ở Hà Nội <span class="route-arr">→</span> Sân bay Nội Bài <span class="route-arr">→</span> TP.HCM</div></div>
@@ -1097,6 +1102,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
   <div class="lightbox-card">
     <button class="lightbox-close" onclick="closeLightbox()" aria-label="Đóng">✕</button>
     <img class="lightbox-photo" id="lightboxPhoto" alt="">
+    <div class="lightbox-map" id="lightboxMap"></div>
     <div class="lightbox-body"><div class="lightbox-name" id="lightboxName"></div></div>
   </div>
 </div>
@@ -1133,6 +1139,38 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
+  }catch(e){}
+
+  /* ── gắn icon tự động cho từng mốc lịch trình, đỡ đặc chữ ── */
+  try{
+    var ICON_RULES = [
+      [/bay |máy bay|cất cánh|hạ cánh|sân bay/i,'✈️'],
+      [/tàu/i,'🚆'],
+      [/xe khách|xe giường|limousine|lên xe|thuê xe|trả xe|xe riêng|xe ghép|bến xe/i,'🚐'],
+      [/cáp treo|fansipan/i,'🚡'],
+      [/chợ/i,'🛍️'],
+      [/ăn |ăn sáng|ăn trưa|ăn tối|xôi|phở|gà nướng|thắng cố|đặc sản/i,'🍜'],
+      [/tắm/i,'🚿'],
+      [/nhận phòng|trả phòng|nghỉ ngơi|ngủ|khách sạn|homestay/i,'🛌'],
+      [/chụp ảnh|check-in|dạo |ngắm/i,'📸'],
+      [/bib|expo|huy chương|xuất phát|vạch đích|chạy 12km|khởi động/i,'🏃'],
+      [/đèo|núi|đồi/i,'⛰️'],
+      [/nhà thờ/i,'⛪'],
+      [/thác|suối/i,'💧'],
+      [/mua |quà|đặc sản trước khi/i,'🛒'],
+      [/vệ sinh cá nhân|dậy sớm/i,'⏰'],
+      [/check-in, gửi hành lý|check-in chuyến/i,'🎒']
+    ];
+    function iconFor(text){
+      for (var i=0;i<ICON_RULES.length;i++){ if (ICON_RULES[i][0].test(text)) return ICON_RULES[i][1]; }
+      return '📍';
+    }
+    Array.prototype.slice.call(document.querySelectorAll('.tl-title')).forEach(function(el){
+      var icon = document.createElement('span');
+      icon.className = 'tl-icon';
+      icon.textContent = iconFor(el.textContent);
+      el.insertBefore(icon, el.firstChild);
+    });
   }catch(e){}
 
   try{
@@ -1515,9 +1553,13 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         var meta = document.createElement('div'); meta.className = 'pl-meta';
         (p.meta||[]).forEach(function(m){ var s = document.createElement('span'); s.textContent = m; meta.appendChild(s); });
         var actions = document.createElement('div'); actions.className = 'pl-actions';
+        var mapBtn = document.createElement('button'); mapBtn.type = 'button'; mapBtn.className = 'btn-map';
+        mapBtn.textContent = '🗺️ Xem bản đồ';
+        mapBtn.addEventListener('click', function(){ openMapLightbox(p.q, p.name); });
         var dirLink = document.createElement('a'); dirLink.className = 'btn-map'; dirLink.target = '_blank'; dirLink.rel = 'noopener';
         dirLink.href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(p.q) + '&travelmode=driving';
         dirLink.textContent = '🧭 Chỉ đường';
+        actions.appendChild(mapBtn);
         actions.appendChild(dirLink);
         body.appendChild(h4); body.appendChild(desc); body.appendChild(meta); body.appendChild(actions);
         card.appendChild(media); card.appendChild(body);
@@ -1627,20 +1669,41 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     }
   }catch(e){}
 
-  /* ── lightbox ── */
+  /* ── lightbox (ảnh + bản đồ Google nhúng) ── */
   window.openLightbox = function(src, name){
     try{
       var bd = document.getElementById('lightboxBackdrop');
       var img = document.getElementById('lightboxPhoto');
+      var map = document.getElementById('lightboxMap');
       var nm = document.getElementById('lightboxName');
-      if (img) img.src = src;
+      if (map){ map.classList.remove('show'); map.innerHTML=''; }
+      if (img){ img.src = src; img.style.display='block'; }
       if (nm) nm.textContent = name || '';
+      if (bd) bd.classList.add('show');
+    }catch(e){}
+  };
+  window.openMapLightbox = function(query, name){
+    try{
+      var bd = document.getElementById('lightboxBackdrop');
+      var img = document.getElementById('lightboxPhoto');
+      var map = document.getElementById('lightboxMap');
+      var nm = document.getElementById('lightboxName');
+      if (img){ img.style.display='none'; }
+      if (map){
+        map.innerHTML = '<iframe src="https://www.google.com/maps?q='+encodeURIComponent(query)+'&output=embed" loading="lazy" allowfullscreen title="Bản đồ '+(name||'')+'"></iframe>';
+        map.classList.add('show');
+      }
+      if (nm) nm.textContent = '🗺️ ' + (name || '');
       if (bd) bd.classList.add('show');
     }catch(e){}
   };
   window.closeLightbox = function(){
     var bd = document.getElementById('lightboxBackdrop');
     if (bd) bd.classList.remove('show');
+    var map = document.getElementById('lightboxMap');
+    if (map){ map.classList.remove('show'); map.innerHTML=''; }
+    var img = document.getElementById('lightboxPhoto');
+    if (img) img.style.display='block';
   };
 
   /* ── background music (nhạc Tây Bắc thật, nhúng từ YouTube — kênh chính chủ nghệ sĩ) ── */
