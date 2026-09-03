@@ -19,24 +19,29 @@
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 
 :root{
-  --bg:#0C0B09; --bg2:#171310; --bg3:#1F1A15;
-  --ink:#F4EFE3; --muted:#A89C89; --line:rgba(244,239,227,.11);
-  --accent:#FFB020; --accent-deep:#D9860A; --accent-soft:rgba(255,176,32,.14);
-  --day0:#5B8DBE; --day1:#E0A93B; --day2:#FF7A33; --day3:#33B08A; --day4:#4AA3C7; --day5:#C0577E;
+  --bg:#FBF5E7; --bg2:#FFFFFF; --bg3:#F2E7CE;
+  --ink:#2B2013; --muted:#8A7A5E; --line:rgba(43,32,19,.13);
+  --accent:#E2890F; --accent-deep:#B96C0A; --accent-soft:rgba(226,137,15,.15);
+  --day0:#2E77B8; --day1:#CC8F16; --day2:#DD5B22; --day3:#188F68; --day4:#1F93AD; --day5:#BC3B6E;
+  --shadow:0 6px 20px rgba(43,32,19,.09); --shadow-sm:0 2px 10px rgba(43,32,19,.07);
   --r:16px; --r-sm:11px;
   --safe-b:env(safe-area-inset-bottom,0px);
   --font-display:'Be Vietnam Pro',-apple-system,'Segoe UI',sans-serif;
   --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);background:var(--bg) radial-gradient(circle,rgba(244,239,227,.05) 1px,transparent 1.4px) 0 0/22px 22px;color:var(--ink);line-height:1.6;font-size:15px;padding-bottom:calc(64px + var(--safe-b));}
+body{font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6;font-size:15px;padding-bottom:calc(64px + var(--safe-b));}
 @media(min-width:700px){body{padding-bottom:0;}}
 a{color:var(--accent);}
 img{max-width:100%;display:block;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 .tnum{font-variant-numeric:tabular-nums;}
+.fcard,.hcard,.ccard,.pcard,.place-card,.bcat,.wcard,.tip-card,.em-card,.exp-item,.pin-card,
+.phrase,.exp-sum-box,.exp-payer-chip,.callout,.day-body,.exp-form,.exp-payer-chip,.ci-pill{
+  box-shadow:var(--shadow-sm);
+}
 .upx{text-transform:uppercase;letter-spacing:.09em;}
 
 .reveal{transition:opacity .5s ease,transform .5s ease;}
@@ -52,7 +57,7 @@ img{max-width:100%;display:block;}
   background:linear-gradient(90deg,var(--accent-deep),var(--accent),#FFD98A);transition:width .1s linear;}
 .back-to-top{
   position:fixed;right:16px;bottom:84px;z-index:900;width:42px;height:42px;border-radius:50%;
-  border:1px solid var(--line);background:var(--bg3);box-shadow:0 4px 16px rgba(0,0,0,.35);font-size:17px;cursor:pointer;
+  border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);font-size:17px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;color:var(--accent);
   opacity:0;transform:translateY(16px) scale(.8);pointer-events:none;
   transition:opacity .25s ease,transform .25s cubic-bezier(.34,1.56,.64,1);
@@ -63,7 +68,7 @@ img{max-width:100%;display:block;}
 @media(prefers-reduced-motion:reduce){.scroll-progress{transition:none;}.back-to-top{transition:none;}}
 
 .hcard,.ccard,.pcard,.place-card,.exp-add,.btn-map{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}
-.hcard:hover,.ccard:hover,.pcard:hover,.place-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.35);}
+.hcard:hover,.ccard:hover,.pcard:hover,.place-card:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(43,32,19,.14);}
 .btn-map:hover{transform:translateY(-1px);}
 .btn-map:active,.exp-add:active{transform:scale(.94);}
 .tli{transition:transform .18s ease;}
@@ -151,9 +156,6 @@ img{max-width:100%;display:block;}
 .lightbox-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);max-width:420px;width:100%;overflow:hidden;position:relative;}
 .lightbox-close{position:absolute;top:10px;right:10px;z-index:2;width:32px;height:32px;border-radius:50%;border:none;background:rgba(9,8,6,.6);color:#fff;font-size:15px;cursor:pointer;}
 .lightbox-photo{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--bg3);}
-.lightbox-map{width:100%;aspect-ratio:4/3;display:none;background:var(--bg3);}
-.lightbox-map.show{display:block;}
-.lightbox-map iframe{width:100%;height:100%;border:0;display:block;}
 .lightbox-body{padding:16px 18px;}
 .lightbox-name{font-family:var(--font-display);font-size:15px;font-weight:800;color:var(--ink);}
 
@@ -161,7 +163,7 @@ img{max-width:100%;display:block;}
 .hero{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:flex-end;color:#fff;}
 .hero-img{position:absolute;inset:-6% -6% -6% -6%;width:112%;height:112%;object-fit:cover;object-position:50% 38%;will-change:transform;}
 .hero-scrim{position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(12,11,9,.35) 0%,rgba(12,11,9,.22) 30%,rgba(12,11,9,.72) 72%,rgba(9,8,6,.96) 100%);}
+  linear-gradient(180deg,rgba(32,20,8,.22) 0%,rgba(32,20,8,.12) 30%,rgba(28,17,7,.68) 72%,rgba(20,12,5,.94) 100%);}
 .hero-mist{position:absolute;inset:0;pointer-events:none;opacity:.55;mix-blend-mode:screen;
   background:
     radial-gradient(ellipse 60% 30% at 20% 85%,rgba(244,239,227,.22),transparent 70%),
@@ -186,14 +188,14 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .cd-colon{color:rgba(244,239,227,.3);font-weight:900;font-size:1.6rem;}
 
 /* ═══ TOP NAV ═══ */
-.snav{position:sticky;top:0;z-index:200;background:rgba(12,11,9,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:none;overflow-x:auto;scrollbar-width:none;padding:0 10px;}
+.snav{position:sticky;top:0;z-index:200;background:rgba(251,245,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:none;overflow-x:auto;scrollbar-width:none;padding:0 10px;}
 @media(min-width:700px){.snav{display:flex;}}
 .snav::-webkit-scrollbar{display:none;}
 .snav a{flex-shrink:0;padding:14px 13px;font-size:11.5px;font-weight:700;letter-spacing:.02em;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:.2s;text-transform:uppercase;}
 .snav a:hover,.snav a.active{color:var(--accent);border-bottom-color:var(--accent);}
 
 /* ═══ BOTTOM NAV ═══ */
-.bnav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(15,13,10,.95);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding-bottom:var(--safe-b);}
+.bnav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(255,253,247,.95);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding-bottom:var(--safe-b);box-shadow:0 -4px 16px rgba(43,32,19,.06);}
 @media(min-width:700px){.bnav{display:none;}}
 .bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px 6px;cursor:pointer;min-height:56px;color:var(--muted);text-decoration:none;font-family:inherit;}
 .bnav-item.active{color:var(--accent);}
@@ -253,8 +255,8 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .fcard-route{font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--ink);margin-bottom:6px;}
 .fcard-detail{font-size:12px;color:var(--muted);line-height:1.7;}
 .fcard-tag{margin-top:11px;display:inline-block;font-size:10.5px;font-weight:700;padding:4px 11px;border-radius:20px;}
-.tag-warn{background:rgba(245,166,35,.14);color:#F5C05C;}
-.tag-ok{background:rgba(52,199,142,.14);color:#5BD9A8;}
+.tag-warn{background:rgba(226,137,15,.14);color:#8A5A0A;}
+.tag-ok{background:rgba(24,143,104,.14);color:#0F7A56;}
 
 /* ═══ HOTELS ═══ */
 .hotel-grid{display:grid;gap:12px;}
@@ -286,7 +288,7 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .day-head{position:relative;overflow:hidden;border-radius:var(--r) var(--r) 0 0;min-height:200px;display:flex;align-items:flex-end;}
 @media(min-width:480px){.day-head{min-height:240px;}}
 .dh-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.dh-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,9,.15) 0%,rgba(12,11,9,.35) 45%,rgba(9,8,6,.92) 100%);}
+.dh-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(32,20,8,.10) 0%,rgba(32,20,8,.32) 45%,rgba(20,12,5,.90) 100%);}
 .dh-scrim.solid{background:linear-gradient(150deg,var(--accent2) 0%,#12100C 130%);opacity:.9;}
 .dh-num{position:absolute;top:14px;right:18px;z-index:2;font-family:var(--font-display);font-weight:900;font-size:64px;color:rgba(244,239,227,.14);line-height:1;}
 .dh-info{position:relative;z-index:2;padding:20px 22px;}
@@ -382,7 +384,7 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .cl{flex:1;line-height:1.4;color:var(--ink);}
 .cl.done{text-decoration:line-through;color:var(--muted);}
 .imp{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;flex-shrink:0;white-space:nowrap;margin-top:2px;}
-.imp-req{color:#FF7A6B;}
+.imp-req{color:#C2410C;}
 .imp-opt{color:var(--muted);}
 
 /* ═══ BUDGET ═══ */
@@ -397,8 +399,8 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .brow:last-child{border-bottom:none;}
 .brow-name{color:var(--muted);flex:1;padding-right:6px;}
 .brow-amt{font-weight:700;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums;font-size:11.8px;}
-.brow-amt.paid{color:#5BD9A8;}
-.budget-total{background:linear-gradient(135deg,#221A0C 0%,#12100C 100%);border:1px solid var(--accent-soft);color:#fff;border-radius:var(--r);padding:22px;margin-top:14px;display:grid;gap:14px;grid-template-columns:1fr 1fr;}
+.brow-amt.paid{color:#0F7A56;}
+.budget-total{background:linear-gradient(135deg,#3D2A12 0%,#1F150A 100%);border:1px solid var(--accent-soft);color:#fff;border-radius:var(--r);padding:22px;margin-top:14px;display:grid;gap:14px;grid-template-columns:1fr 1fr;box-shadow:var(--shadow);}
 @media(max-width:480px){.budget-total{grid-template-columns:1fr;}}
 .bt-label{font-family:var(--font-display);font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--muted);}
 .bt-val{font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--accent);line-height:1.25;margin-top:4px;}
@@ -428,7 +430,7 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .exp-item-desc{font-size:12.5px;font-weight:700;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .exp-item-meta{font-size:10.5px;color:var(--muted);margin-top:1px;}
 .exp-item-amt{font-size:12.5px;font-weight:800;color:var(--accent);white-space:nowrap;flex-shrink:0;text-align:right;}
-.exp-del{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1px solid var(--line);background:none;color:#FF7A6B;font-size:12px;font-weight:900;cursor:pointer;}
+.exp-del{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1px solid var(--line);background:none;color:#C2410C;font-size:12px;font-weight:900;cursor:pointer;}
 .exp-item-payer{display:block;font-size:9.5px;font-weight:700;color:var(--accent2,var(--accent));margin-top:1px;}
 .exp-payer-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:4px 0 8px;}
 @media(min-width:560px){.exp-payer-row{grid-template-columns:repeat(4,1fr);}}
@@ -456,7 +458,7 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .pin-row a{font-size:10px;font-weight:700;color:var(--accent2);}
 
 /* ═══ DASHBOARD ═══ */
-.dash{background:linear-gradient(150deg,#241A0A 0%,#0C0B09 70%);border:1px solid var(--accent-soft);border-radius:22px;padding:32px 24px;}
+.dash{background:linear-gradient(150deg,#3D2A12 0%,#1F150A 70%);border:1px solid var(--accent-soft);border-radius:22px;padding:32px 24px;box-shadow:var(--shadow);}
 .dash h3{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:1.15rem;text-align:center;}
 .dash .sub{text-align:center;font-size:.78rem;color:var(--muted);margin-top:5px;margin-bottom:26px;}
 .dash-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
@@ -483,7 +485,7 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 @media(min-width:460px){.em-grid{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:720px){.em-grid{grid-template-columns:repeat(3,1fr);}}
 .em-card{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px;}
-.em-label{font-family:var(--font-display);font-size:10px;font-weight:800;color:#FF7A6B;text-transform:uppercase;letter-spacing:.04em;}
+.em-label{font-family:var(--font-display);font-size:10px;font-weight:800;color:#C2410C;text-transform:uppercase;letter-spacing:.04em;}
 .em-val{font-family:var(--font-display);font-size:17px;font-weight:900;color:var(--ink);margin-top:4px;}
 .em-note{font-size:11px;color:var(--muted);margin-top:2px;}
 
@@ -619,10 +621,11 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         <a class="btn-map" href="https://www.google.com/maps/place/Homestay+Ng%E1%BB%8Dc+Th%E1%BB%A7y/@21.7909347,104.1512782,17z" target="_blank" rel="noopener">📍 Xem bản đồ</a>
       </div>
       <div class="hcard">
-        <div class="hcard-name">Khách sạn/homestay tại Sa Pa</div>
-        <div class="hcard-area">Thị trấn Sa Pa · Lào Cai</div>
-        <div class="hcard-why">Chưa chốt tên cụ thể — chỉ cần đặt <b>1 đêm duy nhất</b> (tối 04/10) vì tối 05/10 cả nhóm lên tàu đêm về Hà Nội luôn. Nên chọn khu gần trung tâm/hồ Sa Pa để đi bộ ra chợ đêm và nhà thờ đá, đặt sớm vì đầu tháng 10 vẫn là mùa cao điểm.</div>
-        <div class="hcard-tags"><span class="htag">1 đêm</span><span class="htag">Tối 04/10</span><span class="htag imp-req" style="color:#FF7A6B;border-color:transparent;background:rgba(255,122,107,.12);">Cần đặt phòng</span></div>
+        <div class="hcard-name">Aroma Sapa Hotel</div>
+        <div class="hcard-area">Thị trấn Sa Pa · Lào Cai · ⭐ 4,1 (112 đánh giá)</div>
+        <div class="hcard-why">Khách sạn 2 sao, có Family Kitchen &amp; Café ngay tầng trệt — chỉ cần đặt <b>1 đêm duy nhất</b> (tối 04/10) vì tối 05/10 cả nhóm lên tàu đêm về Hà Nội luôn. Giá phòng tham khảo ~350.000–400.000đ/đêm (Booking.com rẻ hơn, có huỷ miễn phí).</div>
+        <div class="hcard-tags"><span class="htag">1 đêm</span><span class="htag">Tối 04/10</span><span class="htag" style="color:#0F7A56;border-color:transparent;background:rgba(24,143,104,.12);">Đã chọn</span></div>
+        <a class="btn-map" href="https://www.google.com/maps/search/Aroma+Sapa+Hotel" target="_blank" rel="noopener">📍 Xem bản đồ</a>
       </div>
     </div>
   </section>
@@ -948,7 +951,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Vé máy bay khứ hồi SGN–HAN (VJ136 / 9G883)</span><span class="imp imp-req">Đã đặt ✓</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Xe giường nằm Mỹ Đình ⇄ Mù Cang Chải</span><span class="imp imp-req">Bắt buộc</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Homestay Ngọc Thủy (MCC)</span><span class="imp imp-req">Bắt buộc</span></div>
-        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Khách sạn Sa Pa (1 đêm, tối 04/10) — chưa đặt</span><span class="imp imp-req">Bắt buộc</span></div>
+        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Đặt phòng Aroma Sapa Hotel (1 đêm, tối 04/10)</span><span class="imp imp-req">Bắt buộc</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Xe khách hợp đồng chở đoàn MCC → Sa Pa (04/10)</span><span class="imp imp-req">Bắt buộc</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Vé tàu SP2/SP4 Lào Cai → Hà Nội (tối 05/10)</span><span class="imp imp-req">Bắt buộc</span></div>
       </div>
@@ -974,7 +977,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
       </div>
       <div class="bcat"><div class="bcat-head"><span class="bcat-icon">🏡</span><span class="bcat-name">Lưu trú</span></div>
         <div class="brow"><span class="brow-name">Homestay Ngọc Thủy (2 đêm)</span><span class="brow-amt tnum">0,3–0,5tr</span></div>
-        <div class="brow"><span class="brow-name">Khách sạn/homestay Sa Pa (1 đêm)</span><span class="brow-amt tnum">0,3–0,6tr</span></div>
+        <div class="brow"><span class="brow-name">Aroma Sapa Hotel (1 đêm, 2 người/phòng)</span><span class="brow-amt tnum">~0,35–0,4tr</span></div>
       </div>
       <div class="bcat"><div class="bcat-head"><span class="bcat-icon">🍜</span><span class="bcat-name">Ăn uống</span></div>
         <div class="brow"><span class="brow-name">6 ngày, ~15 bữa</span><span class="brow-amt tnum">1,0–1,6tr</span></div>
@@ -1102,7 +1105,6 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
   <div class="lightbox-card">
     <button class="lightbox-close" onclick="closeLightbox()" aria-label="Đóng">✕</button>
     <img class="lightbox-photo" id="lightboxPhoto" alt="">
-    <div class="lightbox-map" id="lightboxMap"></div>
     <div class="lightbox-body"><div class="lightbox-name" id="lightboxName"></div></div>
   </div>
 </div>
@@ -1361,7 +1363,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     if (el.classList.contains('on') && totalItems>0 && doneNow===totalItems){ fireConfetti(); }
   };
   function fireConfetti(){
-    var colors = ['#FFB020','#D9860A','#33B08A','#4AA3C7','#C0577E','#E0A93B'];
+    var colors = ['#E2890F','#B96C0A','#188F68','#1F93AD','#BC3B6E','#CC8F16'];
     for (var i=0;i<60;i++){
       (function(){
         var p = document.createElement('div');
@@ -1524,11 +1526,11 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         desc:'Nhà thờ cổ hơn 100 năm tuổi xây bằng đá đẽo, nằm giữa quảng trường trung tâm — điểm hẹn, chụp ảnh và cũng là nơi họp chợ tình vào cuối tuần.',
         meta:['📍 Ngay trung tâm thị trấn Sa Pa','💸 Miễn phí tham quan bên ngoài'],
         q:'Nhà thờ Đá, Sa Pa'},
-      {tag:'Ngày 4',name:'Chợ đêm Sa Pa',icon:'🌆',
+      {tag:'Ngày 4',name:'Chợ đêm Sa Pa',img:'img/choedem.jpg',icon:'🌆',
         desc:'Khu chợ đêm sầm uất quanh quảng trường Nhà thờ Đá, bán đồ nướng, thổ cẩm, đặc sản vùng cao — không khí se lạnh, nhộn nhịp đúng chất cao nguyên.',
         meta:['📍 Ngay trung tâm thị trấn','💸 Đồ nướng 20.000–50.000đ/món · thổ cẩm 50.000–200.000đ'],
         q:'Chợ đêm Sa Pa'},
-      {tag:'Ngày 5',name:'Ga Lào Cai',icon:'🚉',
+      {tag:'Ngày 5',name:'Ga Lào Cai',img:'img/galaocai.jpg',icon:'🚉',
         desc:'Ga đầu mối tuyến đường sắt Hà Nội – Lào Cai, điểm khởi hành tàu đêm về Hà Nội sau 2 ngày khám phá Sa Pa.',
         meta:['📍 Cách trung tâm Sa Pa ~38km, ~45–60 phút','💸 Taxi/xe ghép 350.000–500.000đ/xe · vé tàu ~150.000–400.000đ/người'],
         q:'Ga Lào Cai'}
@@ -1553,13 +1555,13 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         var meta = document.createElement('div'); meta.className = 'pl-meta';
         (p.meta||[]).forEach(function(m){ var s = document.createElement('span'); s.textContent = m; meta.appendChild(s); });
         var actions = document.createElement('div'); actions.className = 'pl-actions';
-        var mapBtn = document.createElement('button'); mapBtn.type = 'button'; mapBtn.className = 'btn-map';
-        mapBtn.textContent = '🗺️ Xem bản đồ';
-        mapBtn.addEventListener('click', function(){ openMapLightbox(p.q, p.name); });
+        var mapLink = document.createElement('a'); mapLink.className = 'btn-map'; mapLink.target = '_blank'; mapLink.rel = 'noopener';
+        mapLink.href = 'https://www.google.com/maps/search/' + encodeURIComponent(p.q);
+        mapLink.textContent = '📍 Xem trên bản đồ';
         var dirLink = document.createElement('a'); dirLink.className = 'btn-map'; dirLink.target = '_blank'; dirLink.rel = 'noopener';
         dirLink.href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(p.q) + '&travelmode=driving';
         dirLink.textContent = '🧭 Chỉ đường';
-        actions.appendChild(mapBtn);
+        actions.appendChild(mapLink);
         actions.appendChild(dirLink);
         body.appendChild(h4); body.appendChild(desc); body.appendChild(meta); body.appendChild(actions);
         card.appendChild(media); card.appendChild(body);
@@ -1669,41 +1671,20 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     }
   }catch(e){}
 
-  /* ── lightbox (ảnh + bản đồ Google nhúng) ── */
+  /* ── lightbox (xem ảnh cỡ lớn) ── */
   window.openLightbox = function(src, name){
     try{
       var bd = document.getElementById('lightboxBackdrop');
       var img = document.getElementById('lightboxPhoto');
-      var map = document.getElementById('lightboxMap');
       var nm = document.getElementById('lightboxName');
-      if (map){ map.classList.remove('show'); map.innerHTML=''; }
-      if (img){ img.src = src; img.style.display='block'; }
+      if (img) img.src = src;
       if (nm) nm.textContent = name || '';
-      if (bd) bd.classList.add('show');
-    }catch(e){}
-  };
-  window.openMapLightbox = function(query, name){
-    try{
-      var bd = document.getElementById('lightboxBackdrop');
-      var img = document.getElementById('lightboxPhoto');
-      var map = document.getElementById('lightboxMap');
-      var nm = document.getElementById('lightboxName');
-      if (img){ img.style.display='none'; }
-      if (map){
-        map.innerHTML = '<iframe src="https://www.google.com/maps?q='+encodeURIComponent(query)+'&output=embed" loading="lazy" allowfullscreen title="Bản đồ '+(name||'')+'"></iframe>';
-        map.classList.add('show');
-      }
-      if (nm) nm.textContent = '🗺️ ' + (name || '');
       if (bd) bd.classList.add('show');
     }catch(e){}
   };
   window.closeLightbox = function(){
     var bd = document.getElementById('lightboxBackdrop');
     if (bd) bd.classList.remove('show');
-    var map = document.getElementById('lightboxMap');
-    if (map){ map.classList.remove('show'); map.innerHTML=''; }
-    var img = document.getElementById('lightboxPhoto');
-    if (img) img.style.display='block';
   };
 
   /* ── background music (nhạc Tây Bắc thật, nhúng từ YouTube — kênh chính chủ nghệ sĩ) ── */
