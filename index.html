@@ -153,20 +153,16 @@ img{max-width:100%;display:block;}
 @keyframes noteFloat{0%{opacity:0;transform:translateY(0) translateX(0);}15%{opacity:1;}100%{opacity:0;transform:translateY(-38px) translateX(10px);}}
 .music-btn.hint{animation:attnPop 1s ease-in-out 3;}
 @keyframes attnPop{0%,100%{transform:scale(1);}50%{transform:scale(1.16);}}
-.yt-panel{
+.music-panel{
   position:fixed;right:16px;bottom:calc(136px + var(--safe-b));z-index:251;
-  width:min(260px, calc(100vw - 32px));background:var(--bg2);border-radius:14px;
-  box-shadow:0 12px 32px rgba(0,0,0,.5);overflow:hidden;display:none;border:1px solid var(--line);
+  width:min(220px, calc(100vw - 32px));background:var(--bg2);border-radius:14px;
+  box-shadow:var(--shadow);overflow:hidden;display:none;border:1px solid var(--line);
+  padding:12px 14px;
 }
-@media(min-width:700px){.yt-panel{bottom:82px;}}
-.yt-panel.show{display:block;}
-.yt-close{
-  position:absolute;top:6px;right:6px;z-index:2;width:24px;height:24px;border-radius:50%;
-  background:rgba(0,0,0,.6);color:#fff;border:none;font-size:12px;cursor:pointer;
-}
-.yt-frame-wrap{width:100%;aspect-ratio:16/9;background:#000;}
-.yt-frame-wrap iframe{width:100%;height:100%;display:block;border:0;}
-.yt-credit{font-size:10px;color:var(--muted);text-align:center;padding:6px 8px;background:var(--bg3);}
+@media(min-width:700px){.music-panel{bottom:82px;}}
+.music-panel.show{display:flex;align-items:center;gap:8px;}
+.music-panel .mp-credit{font-size:11px;color:var(--muted);line-height:1.4;flex:1;}
+.music-panel .mp-close{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--bg3);border:1px solid var(--line);color:var(--muted);font-size:11px;cursor:pointer;}
 @media(prefers-reduced-motion:reduce){.music-btn.playing,.music-btn.hint,.music-note{animation:none;}}
 
 /* ═══ THEME TOGGLE (sáng/tối) ═══ */
@@ -201,27 +197,27 @@ img{max-width:100%;display:block;}
   animation:mistDrift 18s ease-in-out infinite alternate;}
 @keyframes mistDrift{0%{transform:translateX(-3%) translateY(0);}100%{transform:translateX(3%) translateY(-1.5%);}}
 .hero-clouds{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
-.hero-cloud{position:absolute;border-radius:50%;filter:blur(16px);background:rgba(255,255,255,.75);}
-.hero-cloud.c1{width:200px;height:64px;top:10%;left:-24%;opacity:.5;animation:cloudDrift 46s linear infinite;}
-.hero-cloud.c2{width:140px;height:46px;top:19%;left:-30%;opacity:.38;animation:cloudDrift 62s linear infinite;animation-delay:-20s;}
-.hero-cloud.c3{width:110px;height:38px;top:6%;left:-18%;opacity:.32;animation:cloudDrift 74s linear infinite;animation-delay:-40s;}
+.hero-cloud{position:absolute;border-radius:50%;filter:blur(16px);background:rgba(255,255,255,.6);}
+.hero-cloud.c1{width:200px;height:64px;top:3%;left:-24%;opacity:.4;animation:cloudDrift 46s linear infinite;}
+.hero-cloud.c2{width:140px;height:46px;top:9%;left:-30%;opacity:.3;animation:cloudDrift 62s linear infinite;animation-delay:-20s;}
+.hero-cloud.c3{width:110px;height:38px;top:0%;left:-18%;opacity:.26;animation:cloudDrift 74s linear infinite;animation-delay:-40s;}
 @keyframes cloudDrift{from{transform:translateX(0);}to{transform:translateX(148vw);}}
 @media(prefers-reduced-motion:reduce){.hero-mist{animation:none;}.hero-img{will-change:auto;}.hero-cloud{animation:none;display:none;}}
 .hero-inner{position:relative;z-index:1;padding:110px 20px 44px;width:100%;max-width:900px;margin:0 auto;}
-.hero-bib{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--accent);color:var(--accent);font-family:var(--font-display);font-weight:800;font-size:11.5px;padding:6px 13px;border-radius:999px;letter-spacing:.06em;position:relative;overflow:hidden;}
+.hero-bib{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--accent);color:var(--accent);font-family:var(--font-display);font-weight:800;font-size:11.5px;padding:6px 13px;border-radius:999px;letter-spacing:.06em;position:relative;overflow:hidden;background:rgba(20,12,5,.4);backdrop-filter:blur(3px);text-shadow:0 2px 10px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);}
 .hero-bib::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,176,32,.35),transparent);animation:bibShimmer 3.2s ease-in-out infinite;}
 @keyframes bibShimmer{0%{left:-60%;}100%{left:130%;}}
 @media(prefers-reduced-motion:reduce){.hero-bib::after{animation:none;display:none;}}
-.hero-eyebrow{margin-top:18px;font-size:12px;font-weight:600;letter-spacing:.14em;color:rgba(244,239,227,.68);text-transform:uppercase;}
-h1.hero-title{font-family:var(--font-display);font-weight:900;font-size:clamp(2.5rem,9vw,4.6rem);line-height:.98;letter-spacing:-.01em;text-transform:uppercase;margin-top:10px;text-wrap:balance;}
+.hero-eyebrow{margin-top:18px;font-size:12px;font-weight:600;letter-spacing:.14em;color:rgba(244,239,227,.9);text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);}
+h1.hero-title{font-family:var(--font-display);font-weight:900;font-size:clamp(2.5rem,9vw,4.6rem);line-height:.98;letter-spacing:-.01em;text-transform:uppercase;margin-top:10px;text-wrap:balance;text-shadow:0 2px 10px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);}
 h1.hero-title em{font-style:normal;color:var(--accent);}
-.hero-sub{margin-top:16px;font-size:14.5px;color:rgba(244,239,227,.82);max-width:48ch;line-height:1.6;}
+.hero-sub{margin-top:16px;font-size:14.5px;color:rgba(244,239,227,.95);max-width:48ch;line-height:1.6;text-shadow:0 2px 10px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);}
 .hero-rule{width:56px;height:3px;background:var(--accent);margin-top:22px;border-radius:2px;}
 .countdown{margin-top:22px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
 .cd-item{display:flex;align-items:baseline;gap:5px;}
-.cd-num{font-family:var(--font-display);font-weight:900;font-size:2rem;color:var(--accent);line-height:1;}
-.cd-unit{font-size:11px;font-weight:600;color:rgba(244,239,227,.6);text-transform:uppercase;}
-.cd-colon{color:rgba(244,239,227,.3);font-weight:900;font-size:1.6rem;}
+.cd-num{font-family:var(--font-display);font-weight:900;font-size:2rem;color:var(--accent);line-height:1;text-shadow:0 2px 10px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);}
+.cd-unit{font-size:11px;font-weight:600;color:rgba(244,239,227,.85);text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.5);}
+.cd-colon{color:rgba(244,239,227,.5);font-weight:900;font-size:1.6rem;text-shadow:0 1px 4px rgba(0,0,0,.5);}
 
 /* ═══ TOP NAV ═══ */
 .snav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:none;overflow-x:auto;scrollbar-width:none;padding:0 10px;}
@@ -328,10 +324,10 @@ h1.hero-title em{font-style:normal;color:var(--accent);}
 .dh-scrim.solid{background:linear-gradient(150deg,var(--accent2) 0%,#12100C 130%);opacity:.9;}
 .dh-num{position:absolute;top:14px;right:18px;z-index:2;font-family:var(--font-display);font-weight:900;font-size:64px;color:rgba(244,239,227,.14);line-height:1;}
 .dh-info{position:relative;z-index:2;padding:20px 22px;}
-.dh-info .dh-kicker{font-family:var(--font-display);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);}
-.dh-info h2{font-family:var(--font-display);font-weight:900;font-size:22px;text-transform:uppercase;line-height:1.08;margin-top:6px;}
+.dh-info .dh-kicker{font-family:var(--font-display);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);text-shadow:0 2px 10px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);}
+.dh-info h2{font-family:var(--font-display);font-weight:900;font-size:22px;text-transform:uppercase;line-height:1.08;margin-top:6px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);}
 @media(min-width:480px){.dh-info h2{font-size:27px;}}
-.dh-info p{font-size:12px;color:rgba(244,239,227,.7);margin-top:6px;}
+.dh-info p{font-size:12px;color:rgba(244,239,227,.92);margin-top:6px;text-shadow:0 2px 10px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);}
 .day-body{background:var(--bg2);border-radius:0 0 var(--r) var(--r);border:1px solid var(--line);border-top:none;padding:20px 22px 24px;margin-bottom:24px;}
 @media(min-width:480px){.day-body{padding:26px 28px 30px;}}
 
@@ -648,13 +644,13 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
       </div>
     </div>
     <div class="alert"><span class="alert-icon">🎒</span><div><strong>Bay nội địa: có mặt trước 1 tiếng rưỡi vì có ký gửi</strong>Cả 2 chiều đều có hành lý ký gửi (20kg lượt đi, 23kg lượt về) nên nên ra sân bay trước giờ bay khoảng 90 phút để đủ thời gian gửi đồ — không cần tới sớm 3 tiếng như bay quốc tế. Vietjet làm thủ tục chuyến TP.HCM–Hà Nội tại Sảnh A, Nhà ga T1 (nội địa) cả hai đầu sân bay.</div></div>
-    <div class="alert alert-g"><span class="alert-icon">✅</span><div><strong>Bay 21:55 vẫn kịp, không cần quá lo</strong>Tối 05/10 lên tàu đêm từ ga Lào Cai là sáng 06/10 đã có mặt ở Hà Nội, dư nguyên một ngày để nghỉ ngơi/dạo phố trước khi ra sân bay — xem chi tiết ở lịch trình Ngày 5 và Ngày 6.</div></div>
+    <div class="alert alert-g"><span class="alert-icon">✅</span><div><strong>Bay 21:55 vẫn kịp, nhưng cần chuẩn bị kỹ</strong>Trưa 06/10 lên tàu SP8 từ ga Lào Cai (12:05), tới Hà Nội 19:37 — còn khoảng 2 tiếng 18 phút để ra sân bay, hơi gấp nhưng vẫn kịp nếu có taxi đón sẵn tại ga và check-in online trước. Xem chi tiết &amp; mẹo chuẩn bị ở lịch trình Ngày 6.</div></div>
   </section>
 
   <section class="sec reveal pre" id="luu-tru">
     <div class="sec-eyebrow">Ngủ ở đâu</div>
     <div class="sec-title">Lưu trú</div>
-    <p class="sec-desc">2 điểm nghỉ chính trong suốt hành trình — không tính đêm 01/10 (ngủ trên xe khách) và đêm 05/10 (ngủ trên tàu hoả), nên tổng chỉ còn 3 đêm cần đặt phòng.</p>
+    <p class="sec-desc">2 điểm nghỉ chính trong suốt hành trình — không tính đêm 01/10 (ngủ trên xe khách), nên tổng còn 4 đêm cần đặt phòng.</p>
     <div class="hotel-grid">
       <div class="hcard">
         <div class="hcard-name">Homestay Ngọc Thủy</div>
@@ -666,8 +662,8 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
       <div class="hcard">
         <div class="hcard-name">Aroma Sapa Hotel</div>
         <div class="hcard-area">Thị trấn Sa Pa · Lào Cai · ⭐ 4,1 (112 đánh giá)</div>
-        <div class="hcard-why">Khách sạn 2 sao, có Family Kitchen &amp; Café ngay tầng trệt — chỉ cần đặt <b>1 đêm duy nhất</b> (tối 04/10) vì tối 05/10 cả nhóm lên tàu đêm về Hà Nội luôn. Giá phòng tham khảo ~350.000–400.000đ/đêm (Booking.com rẻ hơn, có huỷ miễn phí).</div>
-        <div class="hcard-tags"><span class="htag">1 đêm</span><span class="htag">Tối 04/10</span><span class="htag" style="color:var(--tag-ok-text);border-color:transparent;background:var(--tag-ok-bg);">Đã chọn</span></div>
+        <div class="hcard-why">Khách sạn 2 sao, có Family Kitchen &amp; Café ngay tầng trệt — đặt <b>2 đêm</b> (tối 04–05/10), sáng 06/10 mới trả phòng ra ga Lào Cai đón tàu SP8. Giá phòng tham khảo ~350.000–400.000đ/đêm (Booking.com rẻ hơn, có huỷ miễn phí).</div>
+        <div class="hcard-tags"><span class="htag">2 đêm</span><span class="htag">Tối 04–05/10</span><span class="htag" style="color:var(--tag-ok-text);border-color:transparent;background:var(--tag-ok-bg);">Đã chọn</span></div>
         <a class="btn-map" href="https://www.google.com/maps/search/Aroma+Sapa+Hotel" target="_blank" rel="noopener">📍 Xem bản đồ</a>
       </div>
     </div>
@@ -676,7 +672,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
   <section class="sec reveal pre" id="lich-trinh">
     <div class="sec-eyebrow">Hành trình 6 ngày 5 đêm</div>
     <div class="sec-title">Lịch trình theo ngày</div>
-    <p class="sec-desc">Chọn từng ngày để xem chi tiết — chụp ảnh mùa thu Hà Nội trước khi lên núi, 3 ngày ở Mù Cang Chải quanh race, trưa 04/10 vượt đèo Ô Quy Hồ sang Sa Pa, tối 05/10 lên tàu đêm về Hà Nội rồi mới bay thẳng TP.HCM tối 06/10.</p>
+    <p class="sec-desc">Chọn từng ngày để xem chi tiết — chụp ảnh mùa thu Hà Nội trước khi lên núi, 3 ngày ở Mù Cang Chải quanh race, trưa 04/10 vượt đèo Ô Quy Hồ sang Sa Pa chơi 2 ngày, trưa 06/10 lên tàu SP8 về Hà Nội rồi bay thẳng TP.HCM tối cùng ngày.</p>
 
     <div class="day-tabs-wrap">
       <div class="day-tabs" id="dayTabs">
@@ -694,7 +690,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
       <div class="day-body">
         <div class="route-label">📍 Lộ trình</div>
         <div class="route"><div class="route-inner">Sân bay Tân Sơn Nhất <span class="route-arr">→</span> Sân bay Nội Bài <span class="route-arr">→</span> Phố Phan Đình Phùng <span class="route-arr">→</span> Nhà thờ Lớn <span class="route-arr">→</span> Bến xe Mỹ Đình <span class="route-arr">→</span> Xe đêm Mù Cang Chải</div></div>
-        <div class="ootd-chip"><b>Trang phục:</b> Đồ gọn nhẹ để bay và dạo phố chụp ảnh mùa thu, mang theo áo khoác mỏng cho xe đêm — điều hoà xe giường nằm khá lạnh.</div>
+        <div class="ootd-chip"><b>Trang phục:</b> Đồ gọn nhẹ để bay. Các bạn nữ có thể mang sẵn áo dài để chụp ảnh mùa thu ở Phan Đình Phùng/Nhà thờ Lớn cho đẹp. Nhớ mang theo 1 bộ đồ thoải mái, ấm và dài (quần dài, áo khoác) để thay trước khi lên xe đêm — điều hoà xe giường nằm khá lạnh.</div>
         <div class="tl">
           <div class="tli"><div class="tl-time">10:30</div><div><div class="tl-title">Có mặt sân bay Tân Sơn Nhất</div><div class="tl-desc">Check-in chuyến VJ136 tại Sảnh A, Nhà ga T1 (nội địa) — đến trước giờ bay 1 tiếng rưỡi vì có hành lý ký gửi.</div></div></div>
           <div class="tli"><div class="tl-time">12:00–14:10</div><div><div class="tl-title">Bay TP.HCM → Hà Nội (VJ136)</div><div class="tl-desc">VietJet Air, bay thẳng, hạ cánh Nội Bài.</div></div></div>
@@ -799,7 +795,8 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         <div class="route-label">📍 Lộ trình</div>
         <div class="route"><div class="route-inner">Homestay <span class="route-arr">→</span> Tú Lệ <span class="route-arr">→</span> Đèo Ô Quy Hồ <span class="route-arr">→</span> Sa Pa <span class="route-arr">→</span> Chợ đêm</div></div>
         <div class="ootd-chip"><b>Trang phục:</b> Đồ gọn nhẹ ban ngày, nhưng mang sẵn 1 áo ấm dày trong túi xách tay — Sa Pa buổi tối lạnh hơn Mù Cang Chải khá nhiều.</div>
-        <div class="alert"><span class="alert-icon">🚐</span><div><strong>Không có xe khách tuyến cố định — đặt xe khách hợp đồng theo yêu cầu</strong>Chặng này (~130–160km qua đèo Ô Quy Hồ) không có nhà xe chạy tuyến cố định, nên cần đặt trước 1 xe khách hợp đồng (4–7 chỗ) chở riêng cả đoàn suốt ngày 04/10, khoảng 4,5–6 tiếng tuỳ thời tiết — chở luôn hành lý, tránh phải quay lại homestay rồi mới xuất phát. Có thể liên hệ nhà xe kiểu Sáo Diều (024 7100 2020 / 0936 33 0066, 07:00–22:00) hoặc hỏi trực tiếp homestay giới thiệu tài xế quen tuyến — giá tham khảo 3.000.000–5.000.000đ/xe (chia 4 người). Nên gọi chốt giá &amp; giờ đón trước ít nhất vài ngày.</div></div>
+        <div class="alert"><span class="alert-icon">🚐</span><div><strong>Không có xe khách tuyến cố định — đặt xe khách hợp đồng theo yêu cầu</strong>Chặng này (~130–160km qua đèo Ô Quy Hồ, đi theo hướng Tú Lệ → đèo Ô Quy Hồ → Sa Pa) không có nhà xe chạy tuyến cố định, nên cần đặt trước 1 xe khách hợp đồng (4–7 chỗ) chở riêng cả đoàn suốt ngày 04/10, khoảng 4,5–6 tiếng tuỳ thời tiết — chở luôn hành lý, tránh phải quay lại homestay rồi mới xuất phát. Xe riêng có thể linh hoạt dừng nghỉ/ngắm cảnh ở bất cứ đâu dọc đường, nên nhớ hỏi kỹ giá trước khi đặt. Có thể liên hệ nhà xe kiểu Sáo Diều (024 7100 2020 / 0936 33 0066, 07:00–22:00) hoặc hỏi trực tiếp homestay giới thiệu tài xế quen tuyến — giá tham khảo 3.000.000–5.000.000đ/xe (chia 4 người). Nên gọi chốt giá &amp; giờ đón trước ít nhất vài ngày.</div></div>
+        <div class="alert alert-g"><span class="alert-icon">⛪</span><div><strong>Kết hợp dự lễ tại Nhà thờ Đá Sa Pa</strong>04/10 là Chúa nhật — có thể dự lễ chiều/tối muộn ngay khi vừa tới Sa Pa (giờ lễ tối Chúa nhật thường muộn nhất trong ngày, phù hợp cho người mới tới), hoặc nếu muốn ngủ sớm thì để dành sang lễ sáng sớm thứ Hai 05/10 trước khi đi Fansipan. Nên gọi xác nhận giờ lễ chính xác với nhà thờ gần ngày đi vì có thể thay đổi theo mùa.</div></div>
         <div class="tl">
           <div class="tli"><div class="tl-time">06:30–07:30</div><div><div class="tl-title">Ăn sáng, trả phòng, trả xe máy đã thuê</div><div class="tl-desc">Trả lại xe máy đã thuê ở MCC cho chủ xe trước khi lên đường — xếp hành lý lên xe khách hợp đồng, xe sẽ theo suốt cả ngày tới tận Sa Pa.</div></div></div>
           <div class="tli"><div class="tl-time">07:30–08:30</div><div><div class="tl-title">Di chuyển sang Tú Lệ</div></div></div>
@@ -807,9 +804,10 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
           <div class="tli"><div class="tl-time">10:00–11:00</div><div><div class="tl-title">Ăn trưa sớm — xôi ngũ sắc Tú Lệ, gà nướng</div></div></div>
           <div class="tli"><div class="tl-time">11:00–11:30</div><div><div class="tl-title">Mua thêm ít quà, chuẩn bị cho chặng đường dài</div></div></div>
           <div class="tli"><div class="tl-time">11:30–12:00</div><div><div class="tl-title">Lên xe khách hợp đồng, bắt đầu vượt đèo Ô Quy Hồ sang Sa Pa</div><div class="tl-desc">Qua Than Uyên — Bình Lư — một trong "tứ đại đỉnh đèo" Tây Bắc, khoảng 4,5–6 tiếng.</div><div class="tl-tip">💡 Nghỉ 15–20 phút tại đỉnh đèo (2.035m, ranh giới Lai Châu/Lào Cai) để ngắm toàn cảnh nếu trời quang.</div></div></div>
-          <div class="tli"><div class="tl-time">~17:30–18:30</div><div><div class="tl-title">Tới Sa Pa, nhận phòng, nghỉ ngơi</div><div class="tl-desc">Giờ tới tuỳ tốc độ và điểm dừng dọc đường.</div></div></div>
-          <div class="tli"><div class="tl-time">19:00–20:00</div><div><div class="tl-title">Ăn tối, thử thắng cố, lợn cắp nách</div></div></div>
-          <div class="tli"><div class="tl-time">20:00–21:30</div><div><div class="tl-title">Dạo chợ đêm Sa Pa</div><div class="tl-desc">Mua thổ cẩm, đặc sản, cảm nhận không khí se lạnh cao nguyên.</div></div></div>
+          <div class="tli"><div class="tl-time">~17:30–18:00</div><div><div class="tl-title">Tới Sa Pa, nhận phòng Aroma Sapa Hotel, tắm rửa nhanh</div><div class="tl-desc">Giờ tới tuỳ tốc độ và điểm dừng dọc đường.</div></div></div>
+          <div class="tli"><div class="tl-time">18:30–19:30</div><div><div class="tl-title">Dự lễ tối tại Nhà thờ Đá Sa Pa (tuỳ chọn)</div><div class="tl-desc">Chúa nhật thường có lễ chiều/tối muộn — xác nhận giờ chính xác gần ngày đi.</div></div></div>
+          <div class="tli"><div class="tl-time">19:30–20:30</div><div><div class="tl-title">Ăn tối, thử thắng cố, lợn cắp nách</div></div></div>
+          <div class="tli"><div class="tl-time">20:30–21:30</div><div><div class="tl-title">Dạo chợ đêm Sa Pa</div><div class="tl-desc">Mua thổ cẩm, đặc sản, cảm nhận không khí se lạnh cao nguyên.</div></div></div>
         </div>
         <div class="mood-row"><span class="mood-label">Cảm xúc trong ngày</span>
           <button class="mood-btn" data-day="3" data-mood="😍" onclick="pickMood(this)">😍</button>
@@ -827,25 +825,21 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     </div>
 
     <div class="day-panel" data-idx="4" style="--accent2:var(--day4)">
-      <div class="day-head"><img class="dh-bg" src="img/fansipan.jpg" alt="Cáp treo Fansipan giữa ruộng bậc thang"><div class="dh-scrim"></div><div class="dh-num">05</div><div class="dh-info"><div class="dh-kicker">Ngày 5 · Sa Pa</div><h2>Săn mây trên nóc nhà Đông Dương</h2><p>Thứ 2 · 05/10/2026 · Fansipan · Cát Cát · tàu đêm về Hà Nội</p></div></div>
+      <div class="day-head"><img class="dh-bg" src="img/fansipan.jpg" alt="Cáp treo Fansipan giữa ruộng bậc thang"><div class="dh-scrim"></div><div class="dh-num">05</div><div class="dh-info"><div class="dh-kicker">Ngày 5 · Sa Pa</div><h2>Săn mây trên nóc nhà Đông Dương</h2><p>Thứ 2 · 05/10/2026 · Fansipan · Bản Cát Cát · Hàm Rồng</p></div></div>
       <div class="day-body">
         <div class="route-label">📍 Lộ trình</div>
-        <div class="route"><div class="route-inner">Sa Pa <span class="route-arr">→</span> Cáp treo Fansipan <span class="route-arr">→</span> Bản Cát Cát <span class="route-arr">→</span> Nhà thờ Đá <span class="route-arr">→</span> Ga Lào Cai <span class="route-arr">→</span> Tàu đêm</div></div>
-        <div class="ootd-chip"><b>Trang phục:</b> Áo ấm nhiều lớp — sáng sớm/tối Sa Pa có thể dưới 15°C dù đang đầu tháng 10, mang thêm khăn/mũ len cho lúc lên đỉnh Fansipan, và giữ áo ấm gọn trong balo xách tay cho chuyến tàu đêm.</div>
-        <div class="alert alert-g"><span class="alert-icon">🚆</span><div><strong>Tối nay đổi sang tàu hoả — chỉ cần đặt khách sạn 1 đêm</strong>Vì chỉ đặt 1 đêm Sa Pa (tối 04/10), tối nay cả nhóm trả phòng và ra ga Lào Cai đón tàu đêm SP2 (rời ga 20:35) hoặc SP4 dự phòng (21:10) về thẳng Hà Nội, tới nơi rạng sáng 06/10.</div></div>
+        <div class="route"><div class="route-inner">Sa Pa <span class="route-arr">→</span> Cáp treo Fansipan <span class="route-arr">→</span> Bản Cát Cát <span class="route-arr">→</span> Núi Hàm Rồng <span class="route-arr">→</span> Sa Pa</div></div>
+        <div class="ootd-chip"><b>Trang phục:</b> Áo ấm nhiều lớp — sáng sớm/tối Sa Pa có thể dưới 15°C dù đang đầu tháng 10, mang thêm khăn/mũ len cho lúc lên đỉnh Fansipan.</div>
+        <div class="alert"><span class="alert-icon">⛪</span><div><strong>Lễ sáng sớm thứ Hai (tuỳ chọn)</strong>Nếu tối qua chưa dự lễ ở Nhà thờ Đá, có thể tranh thủ lễ sáng sớm hôm nay (thường khoảng 5h–5h30) trước khi ăn sáng và ra cáp treo — xác nhận giờ chính xác với nhà thờ.</div></div>
         <div class="tl">
           <div class="tli"><div class="tl-time">07:00–08:00</div><div><div class="tl-title">Ăn sáng tại Sa Pa</div></div></div>
           <div class="tli"><div class="tl-time">08:00–08:30</div><div><div class="tl-title">Di chuyển ra ga cáp treo Fansipan</div></div></div>
           <div class="tli"><div class="tl-time">08:30–11:30</div><div><div class="tl-title">Chinh phục Fansipan bằng cáp treo</div><div class="tl-desc">"Nóc nhà Đông Dương" 3.147m — trọn buổi sáng để lên đỉnh, ngắm mây và về lại ga.</div></div></div>
           <div class="tli"><div class="tl-time">11:30–12:30</div><div><div class="tl-title">Ăn trưa tại thị trấn Sa Pa</div></div></div>
           <div class="tli"><div class="tl-time">13:00–15:00</div><div><div class="tl-title">Bản Cát Cát</div><div class="tl-desc">Bản làng người H'Mông, thác nước, ruộng bậc thang mini ngay gần trung tâm.</div></div></div>
-          <div class="tli"><div class="tl-time">15:00–15:45</div><div><div class="tl-title">Nhà thờ Đá Sa Pa, dạo hồ trung tâm</div><div class="tl-desc">Chuyển từ lịch cũ sang đây vì tối nay đi tàu — tranh thủ chụp ảnh trước khi trời tối.</div></div></div>
-          <div class="tli"><div class="tl-time">15:45–17:00</div><div><div class="tl-title">Núi Hàm Rồng (tuỳ sức)</div><div class="tl-desc">Ngắm toàn cảnh thị trấn Sa Pa từ trên cao — có thể bỏ qua nếu muốn dành thời gian nghỉ ngơi trước chặng tàu đêm.</div></div></div>
-          <div class="tli"><div class="tl-time">17:00–17:30</div><div><div class="tl-title">Về khách sạn tắm rửa, trả phòng</div><div class="tl-desc">Chỉ đặt 1 đêm nên trả phòng luôn tối nay, gửi hành lý nếu cần thêm thời gian.</div></div></div>
-          <div class="tli"><div class="tl-time">17:30–18:30</div><div><div class="tl-title">Ăn tối sớm tại Sa Pa</div></div></div>
-          <div class="tli"><div class="tl-time">18:30–19:20</div><div><div class="tl-title">Di chuyển ra ga Lào Cai</div><div class="tl-desc">~38km, khoảng 45–60 phút — taxi/xe ghép giá tham khảo 350.000–500.000đ/xe.</div></div></div>
-          <div class="tli"><div class="tl-time">19:20–20:35</div><div><div class="tl-title">Chờ tàu tại ga Lào Cai</div><div class="tl-desc">Mua đồ ăn nhẹ, nước uống cho chặng tàu đêm.</div></div></div>
-          <div class="tli"><div class="tl-time">20:35</div><div><div class="tl-title">Lên tàu SP2 rời Lào Cai</div><div class="tl-desc">Dự phòng tàu SP4 (21:10) nếu lỡ chuyến SP2. Cả nhóm ngủ trên tàu đêm.</div></div></div>
+          <div class="tli"><div class="tl-time">15:00–16:30</div><div><div class="tl-title">Núi Hàm Rồng</div><div class="tl-desc">Ngắm toàn cảnh thị trấn Sa Pa từ trên cao — có thể đổi thành nghỉ ngơi nếu đã thấm mệt.</div></div></div>
+          <div class="tli"><div class="tl-time">16:30–18:00</div><div><div class="tl-title">Về khách sạn tắm rửa, nghỉ ngơi</div><div class="tl-desc">Vẫn ở Aroma Sapa Hotel đêm thứ 2, không cần chuyển chỗ.</div></div></div>
+          <div class="tli"><div class="tl-time">18:00–19:30</div><div><div class="tl-title">Ăn tối, tự do dạo phố đêm cuối ở Sa Pa</div><div class="tl-desc">Chợ đêm đã đi tối qua nên tối nay có thể la cà quán cà phê hoặc mua thêm quà.</div></div></div>
         </div>
         <div class="mood-row"><span class="mood-label">Cảm xúc trong ngày</span>
           <button class="mood-btn" data-day="4" data-mood="😍" onclick="pickMood(this)">😍</button>
@@ -863,20 +857,22 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     </div>
 
     <div class="day-panel" data-idx="5" style="--accent2:var(--day5)">
-      <div class="day-head"><img class="dh-bg" src="img/nhathologn.jpg" alt="Nhà thờ Lớn Hà Nội"><div class="dh-scrim"></div><div class="dh-num">06</div><div class="dh-info"><div class="dh-kicker">Ngày 6 · Về nhà</div><h2>Tạm biệt Tây Bắc</h2><p>Thứ 3 · 06/10/2026 · Tàu về Hà Nội → cả ngày tự do → bay TP.HCM</p></div></div>
+      <div class="day-head"><img class="dh-bg" src="img/galaocai.jpg" alt="Ga Lào Cai"><div class="dh-scrim"></div><div class="dh-num">06</div><div class="dh-info"><div class="dh-kicker">Ngày 6 · Về nhà</div><h2>Tạm biệt Tây Bắc</h2><p>Thứ 3 · 06/10/2026 · Sa Pa → tàu SP8 → Hà Nội → TP.HCM</p></div></div>
       <div class="day-body">
         <div class="route-label">📍 Lộ trình</div>
-        <div class="route"><div class="route-inner">Tàu đêm <span class="route-arr">→</span> Ga Hà Nội <span class="route-arr">→</span> Tự do ở Hà Nội <span class="route-arr">→</span> Sân bay Nội Bài <span class="route-arr">→</span> TP.HCM</div></div>
-        <div class="ootd-chip"><b>Trang phục:</b> Đồ gọn nhẹ để dạo phố cả ngày, giữ lại 1 áo ấm mỏng phòng sáng sớm Hà Nội se lạnh.</div>
-        <div class="alert alert-g"><span class="alert-icon">🚆</span><div><strong>Đi tàu hoả về Hà Nội — dư nguyên 1 ngày trước khi bay</strong>Tàu SP2/SP4 từ Lào Cai chạy suốt đêm, khoảng 7–7,5 tiếng, cập ga Hà Nội rạng sáng. Nhờ đi tàu tối 05/10 thay vì limousine trưa 06/10, cả nhóm có cả một ngày tự do ở Hà Nội để nghỉ ngơi, tắm rửa, dạo phố trước khi ra sân bay buổi tối — không phải chạy đua với giờ bay như phương án limousine.</div></div>
+        <div class="route"><div class="route-inner">Sa Pa <span class="route-arr">→</span> Ga Lào Cai <span class="route-arr">→</span> Tàu SP8 <span class="route-arr">→</span> Ga Hà Nội <span class="route-arr">→</span> Sân bay Nội Bài <span class="route-arr">→</span> TP.HCM</div></div>
+        <div class="ootd-chip"><b>Trang phục:</b> Đồ gọn nhẹ để ngồi tàu cả buổi chiều, giữ lại 1 áo ấm mỏng phòng sáng sớm Sa Pa se lạnh.</div>
+        <div class="alert alert-g"><span class="alert-icon">🚆</span><div><strong>Tàu SP8 chạy ban ngày — Lào Cai 12:05 → Hà Nội 19:37</strong>Đây là chuyến tàu ban ngày duy nhất trên tuyến (khoảng 7,5 tiếng), phù hợp hơn tàu đêm vì cả nhóm được ngắm cảnh dọc đường thay vì ngủ trên tàu. Toa ghế thường không êm bằng tàu đêm SP nên có thể chọn hạng giường nằm/ghế mềm nếu muốn thoải mái hơn.</div></div>
+        <div class="alert"><span class="alert-icon">⚠️</span><div><strong>Nối chuyến hơi gấp — chuẩn bị trước để kịp bay 21:55</strong>Từ lúc xuống tàu (19:37) tới giờ bay chỉ còn khoảng 2 tiếng 18 phút. Nên: (1) đặt sẵn taxi/Grab đón ngay tại ga Hà Nội, đi thẳng ra sân bay không ghé đâu; (2) làm check-in online trước trên app hãng bay nếu được, ra sân bay chỉ cần gửi hành lý; (3) chuẩn bị đồ ăn nhẹ trên tàu để không mất thời gian ăn tối dọc đường.</div></div>
         <div class="tl">
-          <div class="tli"><div class="tl-time">~04:00–05:00</div><div><div class="tl-title">Tàu tới ga Hà Nội</div><div class="tl-desc">Giờ tới dao động theo chuyến (SP2 hoặc SP4) và tình hình chạy tàu thực tế.</div></div></div>
-          <div class="tli"><div class="tl-time">05:00–06:30</div><div><div class="tl-title">Nghỉ ngơi, ăn sáng gần ga</div><div class="tl-desc">Phở, xôi khu vực Trần Quý Cáp/Lê Duẩn, chờ trời sáng hẳn.</div></div></div>
-          <div class="tli"><div class="tl-time">06:30–11:00</div><div><div class="tl-title">Tự do khám phá lại Hà Nội</div><div class="tl-desc">Gợi ý: dạo Hồ Gươm, cà phê phố cổ, mua nốt quà, hoặc đơn giản là nghỉ bù sau 2 đêm ngủ xe/tàu — có thể thuê phòng khách sạn theo giờ gần ga để tắm rửa nếu cần.</div></div></div>
-          <div class="tli"><div class="tl-time">11:00–12:00</div><div><div class="tl-title">Ăn trưa</div></div></div>
-          <div class="tli"><div class="tl-time">12:00–19:00</div><div><div class="tl-title">Tự do — nghỉ ngơi hoặc dạo phố tiếp</div><div class="tl-desc">Cả buổi chiều rảnh rỗi, tuỳ sức cả nhóm: nghỉ ở khách sạn/quán cà phê, mát-xa thư giãn, hoặc ghé thêm Hoàng Thành Thăng Long/Bảo tàng Dân tộc học nếu còn hứng thú.</div></div></div>
-          <div class="tli"><div class="tl-time">19:15–20:00</div><div><div class="tl-title">Di chuyển ra sân bay Nội Bài</div><div class="tl-desc">~25km từ trung tâm, khoảng 40–50 phút tuỳ giờ tan tầm.</div></div></div>
-          <div class="tli"><div class="tl-time">20:00–20:25</div><div><div class="tl-title">Check-in, gửi hành lý</div><div class="tl-desc">Sảnh A, Nhà ga T1 (nội địa) — có mặt trước giờ bay 1 tiếng rưỡi vì có hành lý ký gửi.</div></div></div>
+          <div class="tli"><div class="tl-time">07:00–08:00</div><div><div class="tl-title">Ăn sáng</div></div></div>
+          <div class="tli"><div class="tl-time">08:00–09:30</div><div><div class="tl-title">Tự do mua quà, dạo phố buổi sáng cuối</div><div class="tl-desc">Thịt trâu gác bếp, thảo quả, thổ cẩm.</div></div></div>
+          <div class="tli"><div class="tl-time">09:30–10:00</div><div><div class="tl-title">Trả phòng, gom hành lý</div></div></div>
+          <div class="tli"><div class="tl-time">10:00–10:45</div><div><div class="tl-title">Di chuyển ra ga Lào Cai</div><div class="tl-desc">~38km, khoảng 45–60 phút — taxi/xe ghép giá tham khảo 350.000–500.000đ/xe.</div></div></div>
+          <div class="tli"><div class="tl-time">10:45–12:05</div><div><div class="tl-title">Chờ tàu tại ga Lào Cai</div><div class="tl-desc">Mua đồ ăn trưa nhẹ mang theo lên tàu.</div></div></div>
+          <div class="tli"><div class="tl-time">12:05</div><div><div class="tl-title">Lên tàu SP8 rời Lào Cai</div><div class="tl-desc">Ngắm cảnh Tây Bắc lần cuối qua cửa sổ tàu.</div></div></div>
+          <div class="tli"><div class="tl-time">19:37</div><div><div class="tl-title">Tàu tới ga Hà Nội</div><div class="tl-desc">Lên taxi/Grab đã đặt sẵn, đi thẳng sân bay Nội Bài.</div></div></div>
+          <div class="tli"><div class="tl-time">~20:20–20:35</div><div><div class="tl-title">Tới sân bay Nội Bài, check-in gấp</div><div class="tl-desc">Sảnh A, Nhà ga T1 (nội địa) — ưu tiên quầy ký gửi hành lý nếu đã check-in online.</div></div></div>
           <div class="tli"><div class="tl-time">21:55</div><div><div class="tl-title">Bay Hà Nội → TP.HCM (9G883)</div><div class="tl-desc">Sun PhuQuoc Airways, bay thẳng.</div></div></div>
           <div class="tli"><div class="tl-time">00:05 (+1)</div><div><div class="tl-title">Hạ cánh Tân Sơn Nhất, về nhà</div><div class="tl-desc">Kết thúc hành trình 6 ngày 5 đêm.</div></div></div>
         </div>
@@ -975,12 +971,16 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Vé BIB đã chuyển từ 2025 sang 2026 — mang theo để nhận</span><span class="imp imp-req">Bắt buộc</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Bảo hiểm du lịch / thể thao</span><span class="imp imp-req">Bắt buộc</span></div>
       </div>
-      <div class="ccard"><h3>🎽 Đồ chạy trail</h3>
+      <div class="ccard"><h3>🎽 Đồ chạy trail (riêng cho ngày race)</h3>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Giày trail, bib số áo</span><span class="imp imp-req">Bắt buộc</span></div>
+        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Quần áo chạy chuyên dụng thấm hút mồ hôi, tất chống phồng rộp</span><span class="imp imp-req">Bắt buộc</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Gel năng lượng, muối khoáng</span><span class="imp imp-opt">Nên có</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Băng gối/cổ chân, mũ, kính râm</span><span class="imp imp-opt">Nên có</span></div>
+        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Bình/túi nước cá nhân theo yêu cầu BTC (nếu có)</span><span class="imp imp-opt">Nên có</span></div>
       </div>
-      <div class="ccard"><h3>🧥 Trang phục &amp; vật dụng</h3>
+      <div class="ccard"><h3>🧳 Trang phục &amp; vật dụng du lịch</h3>
+        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Áo dài (nếu muốn chụp ảnh mùa thu Hà Nội)</span><span class="imp imp-opt">Nên có</span></div>
+        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">1 bộ đồ thoải mái, ấm, dài tay/dài quần để thay khi lên xe đêm</span><span class="imp imp-req">Bắt buộc</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Áo khoác giữ ấm cho sáng sớm/tối trên đèo &amp; Sa Pa</span><span class="imp imp-opt">Nên có</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Áo mưa mỏng, giày đi bộ đường đồi</span><span class="imp imp-opt">Nên có</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Kem chống nắng, thuốc say xe</span><span class="imp imp-opt">Nên có</span></div>
@@ -994,9 +994,9 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Vé máy bay khứ hồi SGN–HAN (VJ136 / 9G883)</span><span class="imp imp-req">Đã đặt ✓</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Xe giường nằm Mỹ Đình ⇄ Mù Cang Chải</span><span class="imp imp-req">Bắt buộc</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Homestay Ngọc Thủy (MCC)</span><span class="imp imp-req">Bắt buộc</span></div>
-        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Đặt phòng Aroma Sapa Hotel (1 đêm, tối 04/10)</span><span class="imp imp-req">Bắt buộc</span></div>
+        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Đặt phòng Aroma Sapa Hotel (2 đêm, tối 04–05/10)</span><span class="imp imp-req">Bắt buộc</span></div>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Xe khách hợp đồng chở đoàn MCC → Sa Pa (04/10)</span><span class="imp imp-req">Bắt buộc</span></div>
-        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Vé tàu SP2/SP4 Lào Cai → Hà Nội (tối 05/10)</span><span class="imp imp-req">Bắt buộc</span></div>
+        <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Vé tàu SP8 Lào Cai → Hà Nội (trưa 06/10, 12:05)</span><span class="imp imp-req">Bắt buộc</span></div>
       </div>
       <div class="ccard"><h3>💰 Tài chính</h3>
         <div class="ci"><div class="cb" onclick="tick(this)"></div><span class="cl">Tiền mặt (nhiều điểm ở MCC sóng yếu)</span><span class="imp imp-req">Bắt buộc</span></div>
@@ -1016,11 +1016,11 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         <div class="brow"><span class="brow-name">Thuê xe máy tại MCC (3 ngày)</span><span class="brow-amt tnum">0,3–0,45tr</span></div>
         <div class="brow"><span class="brow-name">Xe khách hợp đồng MCC → Sa Pa (chia nhóm 4)</span><span class="brow-amt tnum">0,75–1,25tr</span></div>
         <div class="brow"><span class="brow-name">Taxi/xe ghép Sa Pa → ga Lào Cai (chia nhóm 4)</span><span class="brow-amt tnum">0,09–0,13tr</span></div>
-        <div class="brow"><span class="brow-name">Vé tàu SP2/SP4 Lào Cai → Hà Nội</span><span class="brow-amt tnum">0,15–0,4tr</span></div>
+        <div class="brow"><span class="brow-name">Vé tàu SP8 Lào Cai → Hà Nội</span><span class="brow-amt tnum">0,15–0,4tr</span></div>
       </div>
       <div class="bcat"><div class="bcat-head"><span class="bcat-icon">🏡</span><span class="bcat-name">Lưu trú</span></div>
         <div class="brow"><span class="brow-name">Homestay Ngọc Thủy (2 đêm)</span><span class="brow-amt tnum">0,3–0,5tr</span></div>
-        <div class="brow"><span class="brow-name">Aroma Sapa Hotel (1 đêm, 2 người/phòng)</span><span class="brow-amt tnum">~0,35–0,4tr</span></div>
+        <div class="brow"><span class="brow-name">Aroma Sapa Hotel (2 đêm, 2 người/phòng)</span><span class="brow-amt tnum">~0,7–0,8tr</span></div>
       </div>
       <div class="bcat"><div class="bcat-head"><span class="bcat-icon">🍜</span><span class="bcat-name">Ăn uống</span></div>
         <div class="brow"><span class="brow-name">6 ngày, ~15 bữa</span><span class="brow-amt tnum">1,0–1,6tr</span></div>
@@ -1037,7 +1037,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
       </div>
     </div>
     <div class="budget-total">
-      <div><div class="bt-label">Tổng ước tính / người</div><div class="bt-val tnum">4.700.000 – 7.400.000đ</div></div>
+      <div><div class="bt-label">Tổng ước tính / người</div><div class="bt-val tnum">5.050.000 – 7.800.000đ</div></div>
       <div><div class="bt-label">Ghi chú</div><div class="bt-val" style="font-size:12px;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0;">Chưa gồm vé máy bay &amp; lệ phí BIB (đã thanh toán trước), chưa gồm mua sắm cá nhân ngoài dự kiến</div></div>
     </div>
   </section>
@@ -1070,7 +1070,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     </div>
     <div class="exp-summary">
       <div class="exp-sum-box"><div class="exp-sum-label">Đã chi</div><div class="exp-sum-val tnum" id="expTotal">0đ</div></div>
-      <div class="exp-sum-box"><div class="exp-sum-label">Dự trù (TB)</div><div class="exp-sum-val tnum">6.050.000đ</div></div>
+      <div class="exp-sum-box"><div class="exp-sum-label">Dự trù (TB)</div><div class="exp-sum-val tnum">6.400.000đ</div></div>
       <div class="exp-sum-box"><div class="exp-sum-label">Chênh lệch</div><div class="exp-sum-val tnum" id="expDiff">0đ</div></div>
     </div>
     <div class="exp-payer-row" id="expPayerRow"></div>
@@ -1157,11 +1157,11 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
   <span id="themeIcon">🌙</span>
 </button>
 
-<!-- MUSIC TOGGLE (sáo trúc không lời, tự phát khi vào trang — nhúng từ YouTube) -->
-<div class="yt-panel" id="ytPanel">
-  <button class="yt-close" onclick="toggleMusic()" aria-label="Đóng">✕</button>
-  <div class="yt-frame-wrap" id="ytFrameWrap"><div id="ytPlayerHost"></div></div>
-  <div class="yt-credit">🎵 Sáo trúc không lời — nhạc nền thư giãn</div>
+<!-- MUSIC TOGGLE (nhạc sáo không lời, tự phát khi vào trang — file audio tự lưu trữ, không qua YouTube) -->
+<audio id="bgAudio" src="audio_bg.m4a" loop preload="auto"></audio>
+<div class="music-panel" id="musicPanel">
+  <span class="mp-credit">🎵 Nhạc sáo dân gian không lời<br>(CC BY-SA, Wikimedia Commons)</span>
+  <button class="mp-close" onclick="toggleMusic()" aria-label="Đóng">✕</button>
 </div>
 <button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Bật/tắt nhạc nền">
   <span id="musicIcon">🎵</span>
@@ -1417,7 +1417,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
   }
   function updateDashboardStats(){
     var spent = computeExpenseTotal();
-    var budgetMid = 6050000;
+    var budgetMid = 6400000;
     var ck = computeCheckinStats();
     var prep = computeChecklistPercent();
     var $ = function(id){ return document.getElementById(id); };
@@ -1634,7 +1634,7 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
         meta:['📍 Ngay trung tâm thị trấn','💸 Đồ nướng 20.000–50.000đ/món · thổ cẩm 50.000–200.000đ'],
         q:'Chợ đêm Sa Pa'},
       {tag:'Ngày 5',name:'Ga Lào Cai',img:'img/galaocai.jpg',icon:'🚉',
-        desc:'Ga đầu mối tuyến đường sắt Hà Nội – Lào Cai, điểm khởi hành tàu đêm về Hà Nội sau 2 ngày khám phá Sa Pa.',
+        desc:'Ga đầu mối tuyến đường sắt Hà Nội – Lào Cai, điểm lên tàu SP8 ban ngày (12:05) về Hà Nội sau 2 ngày khám phá Sa Pa.',
         meta:['📍 Cách trung tâm Sa Pa ~38km, ~45–60 phút','💸 Taxi/xe ghép 350.000–500.000đ/xe · vé tàu ~150.000–400.000đ/người'],
         q:'Ga Lào Cai'}
     ];
@@ -1790,61 +1790,48 @@ hr{border:none;border-top:1px solid var(--line);margin:20px 0;}
     if (bd) bd.classList.remove('show');
   };
 
-  /* ── background music: sáo trúc không lời, tự phát khi vào trang ── */
+  /* ── background music: file audio tự lưu trữ, không lời, tự phát khi vào trang ── */
   try{
-    var YT_VIDEO_ID = 'A1OMYaoZBG8'; // Sáo trúc thư giãn, nhạc không lời
-    var ytPlayer = null, ytReady = false, musicPlaying = false;
+    var bgAudio = document.getElementById('bgAudio');
+    var musicPlaying = false;
 
     function updateMusicUI(){
       var btn = document.getElementById('musicBtn');
       var icon = document.getElementById('musicIcon');
       if (btn) btn.classList.toggle('playing', musicPlaying);
       if (icon) icon.textContent = musicPlaying ? '⏸' : '🎵';
-      var panel = document.getElementById('ytPanel');
-      if (panel) panel.classList.toggle('show', musicPlaying);
     }
+    if (bgAudio){
+      bgAudio.addEventListener('play', function(){ musicPlaying = true; updateMusicUI(); });
+      bgAudio.addEventListener('pause', function(){ musicPlaying = false; updateMusicUI(); });
 
-    window.onYouTubeIframeAPIReady = function(){
-      try{
-        ytPlayer = new YT.Player('ytPlayerHost', {
-          height:'100%', width:'100%', videoId: YT_VIDEO_ID,
-          playerVars:{autoplay:1, mute:1, loop:1, playlist:YT_VIDEO_ID, controls:1, modestbranding:1, rel:0},
-          events:{
-            onReady:function(e){
-              ytReady = true;
-              try{ e.target.playVideo(); }catch(err){}
-              musicPlaying = true;
-              updateMusicUI();
-            },
-            onStateChange:function(e){
-              if (e.data === YT.PlayerState.PLAYING){ musicPlaying = true; updateMusicUI(); }
-              else if (e.data === YT.PlayerState.PAUSED){ musicPlaying = false; updateMusicUI(); }
-            }
-          }
-        });
-      }catch(err){}
-    };
-    var ytTag = document.createElement('script');
-    ytTag.src = 'https://www.youtube.com/iframe_api';
-    document.body.appendChild(ytTag);
+      /* trình duyệt chỉ cho autoplay có tiếng sau khi người dùng tương tác — thử phát ngay (tắt tiếng), rồi bật tiếng ở lần chạm/click đầu tiên */
+      bgAudio.muted = true;
+      var p = bgAudio.play();
+      if (p && p.catch) p.catch(function(){});
 
-    /* trình duyệt chỉ cho autoplay có tiếng sau khi người dùng tương tác — bật tiếng ngay lần chạm/click đầu tiên */
-    function tryUnmute(){
-      if (ytPlayer && ytReady){
-        try{ ytPlayer.unMute(); ytPlayer.setVolume(65); }catch(e){}
+      function tryUnmute(){
+        if (bgAudio.muted){
+          bgAudio.muted = false;
+          bgAudio.volume = 0.55;
+          if (bgAudio.paused){ var p2 = bgAudio.play(); if (p2 && p2.catch) p2.catch(function(){}); }
+        }
       }
+      ['click','touchstart','scroll','keydown'].forEach(function(evt){
+        document.addEventListener(evt, tryUnmute, {once:true, passive:true});
+      });
     }
-    ['click','touchstart','scroll','keydown'].forEach(function(evt){
-      document.addEventListener(evt, tryUnmute, {once:true, passive:true});
-    });
 
     window.toggleMusic = function(){
-      if (!ytPlayer || !ytReady) return;
-      if (musicPlaying){
-        ytPlayer.pauseVideo();
+      if (!bgAudio) return;
+      var panel = document.getElementById('musicPanel');
+      if (bgAudio.paused){
+        bgAudio.muted = false;
+        var p3 = bgAudio.play(); if (p3 && p3.catch) p3.catch(function(){});
+        if (panel) panel.classList.add('show');
       } else {
-        ytPlayer.unMute();
-        ytPlayer.playVideo();
+        bgAudio.pause();
+        if (panel) panel.classList.remove('show');
       }
     };
   }catch(e){}
